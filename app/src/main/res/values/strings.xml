@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">TaskMgt</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="login_subject">Shinetech Software</string>
+    <string name="login_label_user">Username</string>
+    <string name="login_label_password">Password</string>
+    <string name="login_btnLogin">登录</string>
+    <string name="title_activity_employee">EmployeeActivity</string>
+    <string name="title_activity_task">TaskActivity</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

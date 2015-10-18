@@ -1,0 +1,76 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+
+    <TableLayout
+        android:id="@+id/table1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:stretchColumns="0,1"
+        android:padding="3dip">
+        <TableRow>
+            <LinearLayout
+                android:layout_span="2"
+                android:gravity="center" >
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/logo"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:adjustViewBounds="true" />
+            </LinearLayout>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:id="@+id/LblUser"
+                android:text="@string/login_label_user" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:text="Name"
+                android:ems="10"
+                android:id="@+id/txtUser"
+            />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:id="@+id/LblPwd"
+                android:text="@string/login_label_password" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:text="Name"
+                android:ems="10"
+                android:id="@+id/txtPwd"
+                 />
+        </TableRow>
+        <TableRow>
+            <LinearLayout
+                android:layout_span="2"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                 >
+                <Button android:text="@string/login_btnLogin"
+                    android:layout_height="wrap_content"
+                    android:layout_width="fill_parent"
+                    android:id="@+id/btnLogin"/>
+
+            </LinearLayout>
+        </TableRow>
+
+
+    </TableLayout>
+</RelativeLayout>
