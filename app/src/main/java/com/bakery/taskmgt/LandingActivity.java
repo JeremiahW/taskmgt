@@ -27,6 +27,7 @@ public class LandingActivity extends FragmentActivity
     private ImageButton _btnCreateTask;
     private ImageButton _btnClient;
     private Fragment _mContent;
+    private String Tag = "LandingActivity";
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,13 +66,13 @@ public class LandingActivity extends FragmentActivity
         this._btnTask.setOnClickListener(BtnClick_Listner);
         this._btnUser.setOnClickListener(BtnClick_Listner);
         this._btnCreateTask.setOnClickListener(BtnClick_Listner);
-        Log.v("BtnTask", "BtnTask is clicked");
+        Log.v(Tag,"BtnTask is clicked");
     }
 
     View.OnClickListener BtnClick_Listner = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Log.v("SetEvent","Button event has been set.");
+            Log.v(Tag,"Button event has been set.");
             switch (v.getId()) {
                 case R.id.BtnTask:
                     getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new TaskFragment()).commit();
