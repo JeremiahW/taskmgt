@@ -161,6 +161,7 @@ public class TaskFragment extends Fragment  implements RequestTask.OnRequestTask
                 tempHashMap.put("fax", object.getString("Tax"));
                 tempHashMap.put("fee", object.getString("Fee"));
                 tempHashMap.put("status", object.getString("StatusId"));
+                tempHashMap.put("taskId", object.getString("TaskId"));
                 arrayList.add(tempHashMap);
             }
 

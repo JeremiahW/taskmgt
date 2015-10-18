@@ -65,6 +65,7 @@ public class TaskAdapter extends BaseAdapter {
             item.TxtHaveTax =(TextView)convertView.findViewById(R.id.TxtTaskItemTax);
             item.TxtFee = (TextView)convertView.findViewById(R.id.TxtTaskItemFee);
             item.TxtStatus = (TextView)convertView.findViewById(R.id.TxtTaskItemTaskStatus);
+            item.TxtTaskId =(TextView)convertView.findViewById(R.id.TxtTaskItemId);
             convertView.setTag(item);
         }
         else
@@ -81,6 +82,7 @@ public class TaskAdapter extends BaseAdapter {
         item.TxtHaveTax.setText((String) _data.get(position).get("fax"));
         item.TxtFee.setText((String) _data.get(position).get("fee"));
         item.TxtStatus.setText((String) _data.get(position).get("status"));
+        item.TxtTaskId.setText((String) _data.get(position).get("taskId"));
         item.BtnTaskVisit.setTag(position);
         item.BtnTaskAssign.setTag(position);
         item.BtnTaskVisit.setOnClickListener(new View.OnClickListener() {

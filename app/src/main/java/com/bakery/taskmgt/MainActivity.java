@@ -35,6 +35,7 @@ public class MainActivity extends Activity {
             String user = _txtUser.getText().toString();
             String pwd =  _txtPwd.getText().toString();
 
+            //TODO Login Function needs to be completed
             Intent intent = new Intent();
             intent.setClass(MainActivity.this, LandingActivity.class);
             startActivity(intent);

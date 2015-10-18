@@ -115,6 +115,8 @@
                 android:src="@drawable/visit"
                 android:id="@+id/BtnTaskItemVisit" />
         </LinearLayout>
-
+        <TextView android:id="@+id/TxtTaskItemId"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content" android:visibility="gone" />
     </TableRow>
 </TableLayout>

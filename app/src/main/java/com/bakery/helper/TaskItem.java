@@ -19,4 +19,5 @@ public final class TaskItem {
     public TextView TxtStatus;
     public TextView TxtHaveTax;
     public TextView TxtFee;
+    public TextView TxtTaskId;
 }
