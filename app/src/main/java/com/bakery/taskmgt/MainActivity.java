@@ -10,6 +10,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.view.View.OnClickListener;
 
+import com.baidu.android.pushservice.PushConstants;
+import com.baidu.android.pushservice.PushManager;
+
 public class MainActivity extends Activity {
 
     EditText _txtUser;
@@ -39,7 +42,7 @@ public class MainActivity extends Activity {
             Intent intent = new Intent();
             intent.setClass(MainActivity.this, LandingActivity.class);
             startActivity(intent);
-            finish();
+           // finish();
 			/*
 			new AlertDialog.Builder(v.getContext())
 						   .setTitle("登录错误")

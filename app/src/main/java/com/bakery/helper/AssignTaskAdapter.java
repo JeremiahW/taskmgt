@@ -11,7 +11,6 @@ import android.widget.CompoundButton;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
-import com.bakery.AssignTaskItem;
 import com.bakery.taskmgt.R;
 
 import java.util.ArrayList;

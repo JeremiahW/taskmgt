@@ -8,6 +8,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.baidu.android.pushservice.PushConstants;
+import com.baidu.android.pushservice.PushManager;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 
 /**
@@ -27,6 +29,8 @@ public class LandingActivity extends FragmentActivity
 
         this.SetLeftMenu(savedInstanceState);
         this.SetLeftMenuEvent();
+       // Utils.getMetaValue(MainActivity.this, "api_key")
+        PushManager.startWork(getApplicationContext(), PushConstants.LOGIN_TYPE_API_KEY, "Gm7CgjP22WEOMiB6S5xSGYY3");
     }
 
     private void SetLeftMenu(Bundle savedInstanceState)
