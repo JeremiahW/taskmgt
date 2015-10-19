@@ -2,16 +2,15 @@ package com.bakery.taskmgt;
 
 import android.app.Activity;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.JsonReader;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.TextView;
 
+import com.bakery.helper.AssignTaskAdapter;
 import com.bakery.helper.EmployeeAdapter;
 import com.bakery.helper.RequestTask;
 import com.bakery.helper.RequestTaskParam;
@@ -21,31 +20,19 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-
-import javax.net.ssl.HttpsURLConnection;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link EmployeeFragment.OnFragmentInteractionListener} interface
+ * {@link AssignTaskFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link EmployeeFragment#newInstance} factory method to
+ * Use the {@link AssignTaskFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class EmployeeFragment extends Fragment implements RequestTask.OnRequestTaskCompletedListener {
+public class AssignTaskFragment extends Fragment implements RequestTask.OnRequestTaskCompletedListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -55,7 +42,7 @@ public class EmployeeFragment extends Fragment implements RequestTask.OnRequestT
     private String mParam1;
     private String mParam2;
 
-    IFragementInteractionListener.OnFragmentInteractionListener mListener;
+    private IFragementInteractionListener.OnFragmentInteractionListener mListener;
 
     /**
      * Use this factory method to create a new instance of
@@ -63,11 +50,11 @@ public class EmployeeFragment extends Fragment implements RequestTask.OnRequestT
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment EmployeeFragment.
+     * @return A new instance of fragment AssignTaskFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static EmployeeFragment newInstance(String param1, String param2) {
-        EmployeeFragment fragment = new EmployeeFragment();
+    public static AssignTaskFragment newInstance(String param1, String param2) {
+        AssignTaskFragment fragment = new AssignTaskFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -75,9 +62,7 @@ public class EmployeeFragment extends Fragment implements RequestTask.OnRequestT
         return fragment;
     }
 
-    private ListView _listView;
-    private TextView _txtView;
-    public EmployeeFragment() {
+    public AssignTaskFragment() {
         // Required empty public constructor
     }
 
@@ -88,17 +73,22 @@ public class EmployeeFragment extends Fragment implements RequestTask.OnRequestT
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
     }
 
+    private ListView _list;
+    private String _taskId;
+    private AssignTaskAdapter _adapter;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_employee2, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_assign_task, container, false);
+        this._list = (ListView)rootView.findViewById(R.id.LstEmpAssign);
 
-        this._txtView = (TextView)rootView.findViewById(R.id.TxtViewEmp);
-        this._listView = (ListView)rootView.findViewById(R.id.LstEmployee);
+        if(this.getArguments() != null)
+        {
+            this._taskId = getArguments().getString("taskId", "-1");
+        }
 
         HashMap<String, String> params = new HashMap<String, String>();
         params.put("page","1");
@@ -139,6 +129,7 @@ public class EmployeeFragment extends Fragment implements RequestTask.OnRequestT
         mListener = null;
     }
 
+
     @Override
     public void ResponseDataReady(String response) {
         JSONArray array = null;
@@ -149,18 +140,21 @@ public class EmployeeFragment extends Fragment implements RequestTask.OnRequestT
                 HashMap<String, Object> tempHashMap = new HashMap<String, Object>();
                 JSONObject object = (JSONObject)array.getJSONObject(i);
                 tempHashMap.put("empName",object.getString("name"));
-                tempHashMap.put("empPhone",object.getString("mobile"));
                 tempHashMap.put("empId", object.getString("id"));
                 arrayList.add(tempHashMap);
             }
 
-            EmployeeAdapter adapter = new EmployeeAdapter(this.getActivity(), arrayList, getFragmentManager());
-            this._listView.setAdapter(adapter);
+            _adapter = new AssignTaskAdapter(this.getActivity(), arrayList, getFragmentManager());
+            this._list.setAdapter(_adapter);
+            this._list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    _adapter.set_selectedIndex(position);
+                    _adapter.notifyDataSetChanged();
+                }
+            });
         } catch (JSONException e) {
             e.printStackTrace();
         }
-      //  this._txtView.setText(array.length());
     }
-
-
 }

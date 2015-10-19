@@ -1,7 +1,9 @@
 package com.bakery.helper;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,7 +11,9 @@ import android.widget.BaseAdapter;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.bakery.taskmgt.AssignTaskFragment;
 import com.bakery.taskmgt.R;
+import com.bakery.taskmgt.TaskFragment;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,6 +27,7 @@ public class TaskAdapter extends BaseAdapter {
     private LayoutInflater _layoutInflater;
     private Context _context;
     private FragmentManager _fragmentManager;
+    private String _tag = "TaskAdapter";
 
     public TaskAdapter(Context context, ArrayList<HashMap<String, Object>> data,FragmentManager fragmentManager){
         this._data = data;
@@ -93,11 +98,19 @@ public class TaskAdapter extends BaseAdapter {
             }
         });
 
-        item.BtnTaskVisit.setOnClickListener(new View.OnClickListener(){
+        item.BtnTaskAssign.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View v) {
-                //TODO 添加新的Fragement, 增加将任务分配给员工的功能.
+                Log.i(_tag, "TaskAssign Clicked");
+                Integer row = (Integer) v.getTag();
+                HashMap<String, Object> item = (HashMap<String, Object>)getItem(row);
+
+                AssignTaskFragment fragment = new AssignTaskFragment();
+                Bundle args = new Bundle();
+                args.putString("taskId",item.get("taskId").toString());
+                fragment.setArguments(args);
+                _fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
             }
         });
 

@@ -1,7 +1,5 @@
 package com.bakery.taskmgt;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
 import android.net.Uri;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -11,17 +9,12 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
-import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
-
-import java.util.logging.Logger;
 
 /**
  * Created by wangj on 10/14/15.
  */
 public class LandingActivity extends FragmentActivity
-        implements EmployeeFragment.OnFragmentInteractionListener,
-                    TaskFragment.OnFragmentInteractionListener,
-                    ClientFragment.OnFragmentInteractionListener{
+        implements IFragementInteractionListener.OnFragmentInteractionListener {
     private ImageButton _btnTask;
     private ImageButton _btnUser;
     private ImageButton _btnCreateTask;
