@@ -110,7 +110,7 @@ public class TaskAdapter extends BaseAdapter {
                 Bundle args = new Bundle();
                 args.putString("taskId",item.get("taskId").toString());
                 fragment.setArguments(args);
-                _fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
+                _fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).addToBackStack(null).commit();
             }
         });
 

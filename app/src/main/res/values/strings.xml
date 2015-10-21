@@ -21,4 +21,7 @@
     <string name="taskitem_contactphone">联系电话:</string>
     <string name="taskitem_tax">是否含税:</string>
     <string name="taskitem_fee">费用:</string>
+
+    <string name="leftmenu_open">打开</string>
+    <string name="leftmenu_close">关闭</string>
 </resources>

@@ -1,10 +1,12 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" tools:context="com.bakery.taskmgt.TaskFragment">
-
-    <ListView
-        android:layout_width="fill_parent"
+    <android.support.v4.widget.SwipeRefreshLayout
         android:layout_height="fill_parent"
-        android:id="@+id/LstTask"></ListView>
-
+        android:layout_width="fill_parent" android:id="@+id/TaskSwipLayout">
+            <ListView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/LstTask"></ListView>
+    </android.support.v4.widget.SwipeRefreshLayout>
 </FrameLayout>

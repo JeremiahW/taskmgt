@@ -2,6 +2,7 @@ package com.bakery.helper;
 
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.util.Log;
 import android.widget.TextView;
 
 import com.bakery.taskmgt.EmployeeFragment;
@@ -25,6 +26,7 @@ import javax.net.ssl.HttpsURLConnection;
 public class RequestTask extends AsyncTask<RequestTaskParam, String, String> {
 
     private OnRequestTaskCompletedListener _listener;
+    private String _tag = RequestTask.class.getSimpleName();
     public void SetRequestTaskCompletedListener(OnRequestTaskCompletedListener listener)
     {
         this._listener = listener;
@@ -37,8 +39,8 @@ public class RequestTask extends AsyncTask<RequestTaskParam, String, String> {
         try {
             url = new URL(params[0].getUrl());
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setReadTimeout(10000);
-            conn.setConnectTimeout(15000);
+          //  conn.setReadTimeout(10000);
+          //  conn.setConnectTimeout(15000);
             conn.setRequestMethod("POST");
             conn.setDoInput(true);
             conn.setDoOutput(true);
@@ -64,10 +66,11 @@ public class RequestTask extends AsyncTask<RequestTaskParam, String, String> {
                 while ((line=br.readLine()) != null) {
                     response+=line;
                 }
+                Log.i(_tag, line);
             }
             else {
-                response="";
-
+                response = "";
+                Log.e(_tag, "HttpResponse Code:" + responseCode);
             }
             conn.connect();
         } catch (MalformedURLException e) {

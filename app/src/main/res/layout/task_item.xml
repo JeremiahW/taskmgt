@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:orientation="vertical" android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     android:shrinkColumns="0"
     android:stretchColumns="1">
     <TableRow>
         <TextView android:text="@string/taskitem_requesttime"
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content" />
+            android:layout_width="wrap_content"
+            android:singleLine="true"
+            android:ellipsize="end"/>
         <TextView android:id="@+id/TxtTaskItemRequestTime"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
@@ -15,7 +17,9 @@
 
         <TextView android:text="@string/taskitem_assignto"
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content" />
+            android:layout_width="wrap_content"
+            android:singleLine="true"
+            android:ellipsize="end"/>
         <TextView android:id="@+id/TxtTaskItemAssignTo"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
@@ -25,7 +29,9 @@
     <TableRow>
         <TextView android:text="@string/taskitem_clientname"
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content" />
+            android:layout_width="wrap_content"
+            android:singleLine="true"
+            android:ellipsize="end"/>
 
         <TextView android:id="@+id/TxtTaskItemClientName"
             android:layout_height="wrap_content"
@@ -34,7 +40,9 @@
 
         <TextView android:text="@string/taskitem_clientcontact"
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content" />
+            android:layout_width="wrap_content"
+            android:singleLine="true"
+            android:ellipsize="end"/>
 
         <TextView android:id="@+id/TxtTaskItemContact"
             android:layout_height="wrap_content"
@@ -45,7 +53,9 @@
     <TableRow>
         <TextView android:text="@string/taskitem_contactphone"
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content" />
+            android:layout_width="wrap_content"
+            android:singleLine="true"
+            android:ellipsize="end"/>
         <TextView android:id="@+id/TxtTaskItemClientPhone"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
@@ -53,7 +63,9 @@
 
         <TextView android:text="任务状态:"
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content" />
+            android:layout_width="wrap_content"
+            android:singleLine="true"
+            android:ellipsize="end"/>
         <TextView android:id="@+id/TxtTaskItemTaskStatus"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
@@ -63,7 +75,9 @@
     <TableRow>
         <TextView android:text="@string/taskitem_clientaddress"
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content" />
+            android:layout_width="wrap_content"
+            android:singleLine="true"
+            android:ellipsize="end"/>
 
         <TextView android:id="@+id/TxtTaskItemAddress"
             android:layout_height="wrap_content"
@@ -74,7 +88,9 @@
     <TableRow>
         <TextView android:text="@string/taskitem_tax"
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content" />
+            android:layout_width="wrap_content"
+            android:singleLine="true"
+            android:ellipsize="end"/>
         <TextView android:id="@+id/TxtTaskItemTax"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
@@ -82,7 +98,9 @@
 
         <TextView android:text="@string/taskitem_fee"
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content" />
+            android:layout_width="wrap_content"
+            android:singleLine="true"
+            android:ellipsize="end"/>
         <TextView android:id="@+id/TxtTaskItemFee"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
@@ -92,7 +110,9 @@
     <TableRow>
         <TextView android:text="@string/taskitem_content"
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content" />
+            android:layout_width="wrap_content"
+            android:singleLine="true"
+            android:ellipsize="end"/>
 
         <TextView android:id="@+id/TxtTaskItemContent"
             android:layout_height="wrap_content"
@@ -101,7 +121,8 @@
     </TableRow>
     <TableRow>
         <LinearLayout
-            android:layout_column="3"
+            android:layout_column="2"
+            android:layout_span="2"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content">
             <ImageButton
@@ -114,9 +135,10 @@
                 android:layout_width="wrap_content"
                 android:src="@drawable/visit"
                 android:id="@+id/BtnTaskItemVisit" />
+            <TextView android:id="@+id/TxtTaskItemId"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content" android:visibility="gone" />
         </LinearLayout>
-        <TextView android:id="@+id/TxtTaskItemId"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content" android:visibility="gone" />
+
     </TableRow>
 </TableLayout>

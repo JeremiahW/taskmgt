@@ -4,10 +4,12 @@ import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -33,7 +35,7 @@ import java.util.HashMap;
  * Use the {@link TaskFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class TaskFragment extends Fragment  implements RequestTask.OnRequestTaskCompletedListener{
+public class TaskFragment extends Fragment  implements RequestTask.OnRequestTaskCompletedListener,  SwipeRefreshLayout.OnRefreshListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -43,7 +45,7 @@ public class TaskFragment extends Fragment  implements RequestTask.OnRequestTask
     private String mParam1;
     private String mParam2;
 
-    private IFragementInteractionListener.OnFragmentInteractionListener mListener;
+    IFragementInteractionListener.OnFragmentInteractionListener mListener;
 
     /**
      * Use this factory method to create a new instance of
@@ -79,12 +81,15 @@ public class TaskFragment extends Fragment  implements RequestTask.OnRequestTask
     }
     private TextView _txtView;
     private ListView _listView;
-    private String _page = "1";
+    private SwipeRefreshLayout _taskSwipeLayout;
+    private Integer _page = 1;
     private String _pageSize = "10";
     private String _cid = "-1";
     private String _uId="-1";
     private String _statusId ="-1";
     private String _tag = "TaskFragment";
+    private ArrayList<HashMap<String, Object>> _listData;
+    private TaskAdapter _adapter;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -92,27 +97,22 @@ public class TaskFragment extends Fragment  implements RequestTask.OnRequestTask
         View rootView = inflater.inflate(R.layout.fragment_task, container, false);
 
         this._listView = (ListView)rootView.findViewById(R.id.LstTask);
+        this._taskSwipeLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.TaskSwipLayout);
+        this._taskSwipeLayout.setOnRefreshListener(this);//设置刷新监听器
+        this._taskSwipeLayout.setColorSchemeResources(R.color.blue, R.color.white, R.color.blue, R.color.white);//
+
+        this._listView.setOnScrollListener(onScrollListener);
         if(this.getArguments() != null)
         {
             this._uId = getArguments().getString("empId", "-1");
         }
 
-        //TODO 下拉刷新
+        //初始化Adapter数据. 绑定Adapter和ListView
+        _listData = new ArrayList<HashMap<String, Object>>();
+        _adapter = new TaskAdapter(this.getActivity(), _listData, getFragmentManager());
+
+        LoadData();
         //TODO 点击加载更多的分页功能.
-        HashMap<String, String> params = new HashMap<String, String>();
-        params.put("page", _page);
-        params.put("pageSize", _pageSize);
-        params.put("uid", _uId);
-        params.put("statusid", _statusId);
-        params.put("cid",_cid);
-
-        RequestTaskParam param = new RequestTaskParam();
-        param.setUrl(URLHelper.TasksUrl);
-        param.setPostData(params);
-
-        RequestTask task = new RequestTask();
-        task.SetRequestTaskCompletedListener(this);
-        task.execute(param);
 
         return rootView;
     }
@@ -143,9 +143,14 @@ public class TaskFragment extends Fragment  implements RequestTask.OnRequestTask
 
     @Override
     public void ResponseDataReady(String response) {
-        Log.i(_tag, "Request Completed.");
+        if(response.isEmpty())
+        {
+           Log.i(_tag, "No response message from server.");
+        }
+        Log.i(_tag, response);
+
         JSONArray array = null;
-        ArrayList<HashMap<String, Object>> arrayList = new ArrayList<HashMap<String, Object>>();
+
         try {
             array = new JSONArray(response);
             for(int i=0;i<array.length();i++) {
@@ -162,16 +167,59 @@ public class TaskFragment extends Fragment  implements RequestTask.OnRequestTask
                 tempHashMap.put("fee", object.getString("Fee"));
                 tempHashMap.put("status", object.getString("StatusId"));
                 tempHashMap.put("taskId", object.getString("TaskId"));
-                arrayList.add(tempHashMap);
+                _listData.add(tempHashMap);
             }
 
-            TaskAdapter adapter = new TaskAdapter(this.getActivity(), arrayList, getFragmentManager());
-            this._listView.setAdapter(adapter);
-
+            this._listView.setAdapter(_adapter);
+            _taskSwipeLayout.setRefreshing(false);
+            _adapter.notifyDataSetChanged();
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
 
+    AbsListView.OnScrollListener onScrollListener = new AbsListView.OnScrollListener() {
+        @Override
+        public void onScrollStateChanged(AbsListView view, int scrollState) {
+            switch (scrollState) {
+                case SCROLL_STATE_IDLE:
 
+                    if (_listView.getLastVisiblePosition() ==  _listData.size() -1) {
+                        _page ++;
+                        LoadData();
+                    }
+                    break;
+            }
+        }
+
+        @Override
+        public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+
+        }
+    };
+    @Override
+    public void onRefresh() {
+        this._page = 1;
+        //清空列表数据. 重新调用LoadData进行获取
+        _listData.clear();
+        LoadData();
+    }
+
+    public void LoadData()
+    {
+        HashMap<String, String> params = new HashMap<String, String>();
+        params.put("page", _page.toString());
+        params.put("pageSize", _pageSize);
+        params.put("uid", _uId);
+        params.put("statusid", _statusId);
+        params.put("cid",_cid);
+
+        RequestTaskParam param = new RequestTaskParam();
+        param.setUrl(URLHelper.TasksUrl);
+        param.setPostData(params);
+
+        RequestTask task = new RequestTask();
+        task.SetRequestTaskCompletedListener(this);
+        task.execute(param);
+    }
 }

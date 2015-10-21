@@ -42,7 +42,7 @@ public class MainActivity extends Activity {
             Intent intent = new Intent();
             intent.setClass(MainActivity.this, LandingActivity.class);
             startActivity(intent);
-           // finish();
+            finish();
 			/*
 			new AlertDialog.Builder(v.getContext())
 						   .setTitle("登录错误")

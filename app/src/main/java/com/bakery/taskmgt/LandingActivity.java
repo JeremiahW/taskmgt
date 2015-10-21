@@ -1,16 +1,19 @@
 package com.bakery.taskmgt;
 
 import android.net.Uri;
+import android.support.v4.view.GravityCompat;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.PushManager;
-import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
+import com.bakery.helper.Utils;
 
 /**
  * Created by wangj on 10/14/15.
@@ -22,6 +25,9 @@ public class LandingActivity extends FragmentActivity
     private ImageButton _btnCreateTask;
     private ImageButton _btnClient;
     private Fragment _mContent;
+    private DrawerLayout _leftMenu;
+    private ActionBarDrawerToggle _drawerToggle;
+    private DrawerLayout _drawerLayout;
     private String Tag = "LandingActivity";
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -29,8 +35,35 @@ public class LandingActivity extends FragmentActivity
 
         this.SetLeftMenu(savedInstanceState);
         this.SetLeftMenuEvent();
-       // Utils.getMetaValue(MainActivity.this, "api_key")
-        PushManager.startWork(getApplicationContext(), PushConstants.LOGIN_TYPE_API_KEY, "Gm7CgjP22WEOMiB6S5xSGYY3");
+        try {
+              /*set the shadow for drawer at start(left) or end(right)*/
+            _drawerLayout.setDrawerShadow(R.drawable.logo,
+                    GravityCompat.START);
+            this._leftMenu = (DrawerLayout)findViewById(R.id.mainDrawer);
+            this._drawerToggle = new ActionBarDrawerToggle(this, _drawerLayout, R.string.leftmenu_open, R.string.leftmenu_close)
+            {
+                @Override
+                public void onDrawerOpened(View drawerView) {
+                    super.onDrawerOpened(drawerView);
+                    getActionBar().setTitle("");
+                }
+
+                @Override
+                public void onDrawerClosed(View drawerView) {
+                    super.onDrawerClosed(drawerView);
+                }
+            };
+
+            _drawerLayout.setDrawerListener(_drawerToggle);
+
+            //百度推送服务
+            PushManager.startWork(getApplicationContext(), PushConstants.LOGIN_TYPE_API_KEY,
+                    Utils.getMetaValue(LandingActivity.this, "api_key"));
+        }
+        catch (Exception e){
+           e.printStackTrace();
+        }
+
     }
 
     private void SetLeftMenu(Bundle savedInstanceState)
@@ -41,17 +74,7 @@ public class LandingActivity extends FragmentActivity
         }
         setContentView(R.layout.landing);
         getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new TaskFragment()).commit();
-        SlidingMenu menu = new SlidingMenu(this);
-       // menu.setMenu(R.layout.leftmenu);
 
-        menu.setMode(SlidingMenu.LEFT);
-        menu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
-        menu.setShadowWidth(50);
-        menu.setFadeDegree(0.35f);
-        //menu.setBehindOffset(R.dimen.slidingmenu_offset);
-        menu.setBehindWidth(500);
-        menu.setMenu(R.layout.leftmenu);
-        menu.attachToActivity(this, SlidingMenu.SLIDING_CONTENT);
     }
 
     private void SetLeftMenuEvent()

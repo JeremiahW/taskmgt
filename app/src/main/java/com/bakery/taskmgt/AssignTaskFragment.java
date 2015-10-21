@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -78,6 +79,7 @@ public class AssignTaskFragment extends Fragment implements RequestTask.OnReques
     private ListView _list;
     private String _taskId;
     private AssignTaskAdapter _adapter;
+    private FragmentManager _fragementManger;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -89,6 +91,8 @@ public class AssignTaskFragment extends Fragment implements RequestTask.OnReques
         {
             this._taskId = getArguments().getString("taskId", "-1");
         }
+
+        this._fragementManger = getFragmentManager();
 
         HashMap<String, String> params = new HashMap<String, String>();
         params.put("page","1");
@@ -151,6 +155,7 @@ public class AssignTaskFragment extends Fragment implements RequestTask.OnReques
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     _adapter.set_selectedIndex(position);
                     _adapter.notifyDataSetChanged();
+                    _fragementManger.popBackStack();
                 }
             });
         } catch (JSONException e) {
