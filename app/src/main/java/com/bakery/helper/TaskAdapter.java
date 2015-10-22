@@ -1,5 +1,6 @@
 package com.bakery.helper;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
@@ -34,6 +35,7 @@ public class TaskAdapter extends BaseAdapter {
         this._context = context;
         this._fragmentManager = fragmentManager;
         this._layoutInflater = LayoutInflater.from(context);
+
     }
 
     @Override
@@ -71,13 +73,25 @@ public class TaskAdapter extends BaseAdapter {
             item.TxtFee = (TextView)convertView.findViewById(R.id.TxtTaskItemFee);
             item.TxtStatus = (TextView)convertView.findViewById(R.id.TxtTaskItemTaskStatus);
             item.TxtTaskId =(TextView)convertView.findViewById(R.id.TxtTaskItemId);
+
+            //设置初始值
+            item.VisitTime = "";
+            item.VisitResult = "";
+            item.VisitUser = "";
+            item.VisitRemark = "";
             convertView.setTag(item);
         }
         else
         {
             item = (TaskItem)convertView.getTag();
         }
-        item.TxtRequestTime.setText((String) _data.get(position).get("requestTime"));
+
+        item.VisitTime = (String) _data.get(position).get("visitTime");
+        item.VisitResult = (String) _data.get(position).get("visitResult");
+        item.VisitUser = (String) _data.get(position).get("visitUser");
+        item.VisitRemark =(String) _data.get(position).get("visitRemark");
+
+        item.TxtRequestTime.setText( Converter.FormatStringDate((String) _data.get(position).get("requestTime")));
         item.TxtAssignTo.setText((String) _data.get(position).get("assignTo"));
         item.TxtClientAddress.setText((String) _data.get(position).get("clientAddress"));
         item.TxtClientContact.setText((String) _data.get(position).get("clientContact"));
@@ -93,8 +107,26 @@ public class TaskAdapter extends BaseAdapter {
         item.BtnTaskVisit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Object obj = v.getTag();
-                //TODO 显示回访信息
+                Log.i(_tag, "Visit Clicked");
+                Integer row = (Integer) v.getTag();
+                HashMap<String, Object> item = (HashMap<String, Object>)getItem(row);
+
+
+                View dialogLayout = _layoutInflater.inflate(R.layout.visit_dialog, null);
+
+                TextView txtTime = (TextView) dialogLayout.findViewById(R.id.TxtVisitTime);
+                TextView txtUser = (TextView) dialogLayout.findViewById(R.id.TxtVisitUser);
+                TextView txtRemark = (TextView) dialogLayout.findViewById(R.id.TxtVisitRemark);
+                TextView txtResult = (TextView) dialogLayout.findViewById(R.id.TxtVisitResult);
+
+                txtTime.setText(Converter.FormatStringDate((String)item.get("visitTime")));
+                txtUser.setText((String)item.get("visitUser"));
+                txtRemark.setText((String)item.get("visitRemark"));
+                txtResult.setText((String)item.get("visitResult"));
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
+                builder.setView(dialogLayout);
+                builder.show();
             }
         });
 
@@ -113,8 +145,6 @@ public class TaskAdapter extends BaseAdapter {
                 _fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).addToBackStack(null).commit();
             }
         });
-
-
         return convertView;
     }
 }

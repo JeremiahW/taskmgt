@@ -24,4 +24,8 @@
 
     <string name="leftmenu_open">打开</string>
     <string name="leftmenu_close">关闭</string>
+    <string name="visit_dialog_time">回访时间</string>
+    <string name="visit_dialog_person">回访人</string>
+    <string name="visit_dialog_result">回访结果</string>
+    <string name="visit_dialog_remark">回访备注</string>
 </resources>

@@ -155,6 +155,10 @@ public class AssignTaskFragment extends Fragment implements RequestTask.OnReques
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     _adapter.set_selectedIndex(position);
                     _adapter.notifyDataSetChanged();
+
+                    HashMap<String, Object> item = (HashMap<String, Object>)  _list.getItemAtPosition(position);
+                    String empId = item.get("empId").toString();
+                    //TODO Call Api to Assign Task and then popBackStack();
                     _fragementManger.popBackStack();
                 }
             });

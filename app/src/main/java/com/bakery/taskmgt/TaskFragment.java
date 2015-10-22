@@ -167,14 +167,22 @@ public class TaskFragment extends Fragment  implements RequestTask.OnRequestTask
                 tempHashMap.put("fee", object.getString("Fee"));
                 tempHashMap.put("status", object.getString("StatusId"));
                 tempHashMap.put("taskId", object.getString("TaskId"));
+
+                tempHashMap.put("visitResult", object.getString("VisitResult"));
+                tempHashMap.put("visitRemark", object.getString("VisitRemark"));
+                tempHashMap.put("visitTime", object.getString("VisitTime"));
+                tempHashMap.put("visitUser", object.getString("VisitUserName"));
+
                 _listData.add(tempHashMap);
             }
 
             this._listView.setAdapter(_adapter);
-            _taskSwipeLayout.setRefreshing(false);
             _adapter.notifyDataSetChanged();
         } catch (JSONException e) {
             e.printStackTrace();
+        }
+        finally {
+            _taskSwipeLayout.setRefreshing(false);
         }
     }
 

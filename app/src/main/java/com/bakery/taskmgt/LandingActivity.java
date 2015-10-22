@@ -27,8 +27,7 @@ public class LandingActivity extends FragmentActivity
     private Fragment _mContent;
     private DrawerLayout _leftMenu;
     private ActionBarDrawerToggle _drawerToggle;
-    private DrawerLayout _drawerLayout;
-    private String Tag = "LandingActivity";
+     private String Tag = "LandingActivity";
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,11 +35,11 @@ public class LandingActivity extends FragmentActivity
         this.SetLeftMenu(savedInstanceState);
         this.SetLeftMenuEvent();
         try {
-              /*set the shadow for drawer at start(left) or end(right)*/
-            _drawerLayout.setDrawerShadow(R.drawable.logo,
-                    GravityCompat.START);
             this._leftMenu = (DrawerLayout)findViewById(R.id.mainDrawer);
-            this._drawerToggle = new ActionBarDrawerToggle(this, _drawerLayout, R.string.leftmenu_open, R.string.leftmenu_close)
+              /*set the shadow for drawer at start(left) or end(right)*/
+            this._leftMenu.setDrawerShadow(R.drawable.logo,
+                    GravityCompat.START);
+             this._drawerToggle = new ActionBarDrawerToggle(this, _leftMenu, R.string.leftmenu_open, R.string.leftmenu_close)
             {
                 @Override
                 public void onDrawerOpened(View drawerView) {
@@ -54,11 +53,12 @@ public class LandingActivity extends FragmentActivity
                 }
             };
 
-            _drawerLayout.setDrawerListener(_drawerToggle);
+            this._leftMenu.setDrawerListener(_drawerToggle);
 
+            String apiKey =  Utils.getMetaValue(LandingActivity.this, "api_key");
+            Log.d(Tag, apiKey);
             //百度推送服务
-            PushManager.startWork(getApplicationContext(), PushConstants.LOGIN_TYPE_API_KEY,
-                    Utils.getMetaValue(LandingActivity.this, "api_key"));
+            PushManager.startWork(getApplicationContext(), PushConstants.LOGIN_TYPE_API_KEY,apiKey);
         }
         catch (Exception e){
            e.printStackTrace();

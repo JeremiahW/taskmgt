@@ -20,4 +20,9 @@ public final class TaskItem {
     public TextView TxtHaveTax;
     public TextView TxtFee;
     public TextView TxtTaskId;
+
+    public String VisitTime;
+    public String VisitResult;
+    public String VisitUser;
+    public String VisitRemark;
 }
