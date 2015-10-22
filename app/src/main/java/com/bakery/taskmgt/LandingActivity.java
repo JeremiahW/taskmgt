@@ -73,7 +73,7 @@ public class LandingActivity extends FragmentActivity
                     savedInstanceState, "mContent");
         }
         setContentView(R.layout.landing);
-        getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new TaskFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new AddTaskFragment()).commit();
 
     }
 
@@ -82,10 +82,12 @@ public class LandingActivity extends FragmentActivity
         this._btnTask = (ImageButton)findViewById(R.id.BtnTask);
         this._btnUser = (ImageButton)findViewById(R.id.BtnUser);
         this._btnCreateTask = (ImageButton)findViewById(R.id.BtnAddTask);
-        this._btnCreateTask = (ImageButton)findViewById(R.id.BtnClient);
+        this._btnClient = (ImageButton)findViewById(R.id.BtnClient);
+
         this._btnTask.setOnClickListener(BtnClick_Listner);
         this._btnUser.setOnClickListener(BtnClick_Listner);
         this._btnCreateTask.setOnClickListener(BtnClick_Listner);
+        this._btnClient.setOnClickListener(BtnClick_Listner);
         Log.v(Tag,"BtnTask is clicked");
     }
 
@@ -101,7 +103,7 @@ public class LandingActivity extends FragmentActivity
                     getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new EmployeeFragment()).commit();
                     break;
                 case R.id.BtnAddTask:
-                    getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new TaskFragment()).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new AddTaskFragment()).commit();
                     break;
                 case R.id.BtnClient:
                     getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new ClientFragment()).commit();
