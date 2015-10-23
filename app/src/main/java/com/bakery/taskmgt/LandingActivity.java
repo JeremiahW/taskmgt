@@ -58,7 +58,7 @@ public class LandingActivity extends FragmentActivity
             String apiKey =  Utils.getMetaValue(LandingActivity.this, "api_key");
             Log.d(Tag, apiKey);
             //百度推送服务
-            PushManager.startWork(getApplicationContext(), PushConstants.LOGIN_TYPE_API_KEY,apiKey);
+            //PushManager.startWork(getApplicationContext(), PushConstants.LOGIN_TYPE_API_KEY,apiKey);
         }
         catch (Exception e){
            e.printStackTrace();

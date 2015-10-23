@@ -12,9 +12,9 @@ import android.widget.BaseAdapter;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.bakery.model.TaskItem;
 import com.bakery.taskmgt.AssignTaskFragment;
 import com.bakery.taskmgt.R;
-import com.bakery.taskmgt.TaskFragment;
 
 import java.util.ArrayList;
 import java.util.HashMap;

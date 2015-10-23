@@ -2,16 +2,15 @@
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="fill_parent"
     android:layout_height="fill_parent" tools:context="com.bakery.taskmgt.AddTaskFragment">
 
-
   <TableLayout
       android:layout_width="fill_parent"
       android:layout_height="fill_parent"
-      android:stretchColumns="1,2"
-      android:shrinkColumns="0"  >
+      android:stretchColumns="0"
+      android:shrinkColumns="1"  >
       <TableRow>
           <TextView android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              android:text="请求日期与时间" android:layout_span="3"/>
+              android:text="请求日期与时间" android:layout_span="2"/>
       </TableRow>
       <TableRow>
           <EditText android:layout_width="fill_parent"
@@ -34,34 +33,51 @@
       <TableRow>
           <TextView android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              android:text="选择客户" android:layout_span="3"/>
+              android:text="选择客户" android:layout_span="2"/>
+      </TableRow>
+      <TableRow>
+          <EditText android:layout_height="wrap_content" android:layout_width="wrap_content"
+              android:id="@+id/TxtAddTaskClient" android:layout_span="2"/>
+          <Button android:layout_height="wrap_content"
+              android:layout_width="wrap_content"
+              android:id="@+id/BtnAddTaskClient"
+              android:text="选择客户"/>
       </TableRow>
       <TableRow>
           <TextView android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              android:text="选择负责人" android:layout_span="3"/>
-
+              android:text="选择负责人" android:layout_span="2"/>
+      </TableRow>
+      <TableRow>
+          <Spinner android:id="@+id/SpinnerTaskAddUser"  android:layout_span="2"></Spinner>
       </TableRow>
       <TableRow>
           <TextView android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              android:text="工作内容" android:layout_span="3"/>
+              android:text="工作内容" android:layout_span="2"/>
       </TableRow>
       <TableRow>
-          <TextView android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:text="费用"/>
           <EditText android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              android:text="99.99"/>
-          <RadioGroup android:orientation="horizontal">
-              <RadioButton
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content" android:text="含税" />
-              <RadioButton
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content" android:text="不含税" android:checked="true" />
-          </RadioGroup>
+              android:layout_span="2"/>
+      </TableRow>
+      <TableRow>
+          <LinearLayout android:layout_span="2" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent">
+              <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="费用"/>
+              <EditText android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="99.99"/>
+              <RadioGroup android:orientation="horizontal" android:layout_height="wrap_content" android:layout_width="wrap_content">
+                  <RadioButton
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content" android:text="含税" />
+                  <RadioButton
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content" android:text="不含税" android:checked="true" />
+              </RadioGroup>
+          </LinearLayout>
       </TableRow>
   </TableLayout>
 

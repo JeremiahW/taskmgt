@@ -3,20 +3,35 @@ package com.bakery.taskmgt;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TimePicker;
 
+import com.bakery.helper.ClientAdapter;
 import com.bakery.helper.RequestTask;
+import com.bakery.helper.RequestTaskParam;
+import com.bakery.helper.URLHelper;
+import com.bakery.model.EmployeeModel;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.List;
 
 
 /**
@@ -70,10 +85,14 @@ public class AddTaskFragment extends Fragment implements RequestTask.OnRequestTa
         }
     }
 
+    private String _tag = this.getClass().getSimpleName();
     private Button _btnPopDate;
     private Button _btnPopTime;
+    private Button _btnPopClient;
     private EditText _txtRequestDate;
     private EditText _txtReuqestTime;
+    private EditText _txtClient;
+    private Spinner _spinnerUsers;
     private int _year;
     private int _month;
     private int _day;
@@ -89,12 +108,33 @@ public class AddTaskFragment extends Fragment implements RequestTask.OnRequestTa
         this._txtRequestDate = (EditText)rootView.findViewById(R.id.TxtAddTaskRequestDate);
         this._btnPopTime = (Button)rootView.findViewById(R.id.BtnAddRequestTime);
         this._txtReuqestTime = (EditText)rootView.findViewById(R.id.TxtAddTaskRequestTime);
+        this._txtClient = (EditText)rootView.findViewById(R.id.TxtAddTaskClient);
+        this._spinnerUsers = (Spinner)rootView.findViewById(R.id.SpinnerTaskAddUser);
+        this._btnPopClient = (Button)rootView.findViewById(R.id.BtnAddTaskClient);
         this._btnPopDate.setOnClickListener(btnClickListener);
         this._btnPopTime.setOnClickListener(btnClickListener);
+        this._btnPopClient.setOnClickListener(btnClickListener);
 
         InitDateTimeParam();
+        InitUserSelection();
         return rootView;
     }
+
+    private void InitUserSelection()
+    {
+        HashMap<String, String> params = new HashMap<String, String>();
+        params.put("page","1");
+        params.put("pageSize", "10");
+
+        RequestTaskParam param = new RequestTaskParam();
+        param.setUrl(URLHelper.UsersUrl);
+        param.setPostData(params);
+
+        RequestTask task = new RequestTask();
+        task.SetRequestTaskCompletedListener(this);
+        task.execute(param);
+    }
+
     private void InitDateTimeParam()
     {
         final Calendar c = Calendar.getInstance();
@@ -129,6 +169,12 @@ public class AddTaskFragment extends Fragment implements RequestTask.OnRequestTa
         tpd.show();
     }
 
+    public void ClientSelection()
+    {
+        Intent intent = new Intent();
+        intent.setClass(this.getContext(), ClientActivity.class);
+        startActivityForResult(intent, 0);
+     }
 
     View.OnClickListener btnClickListener = new View.OnClickListener() {
         @Override
@@ -140,6 +186,9 @@ public class AddTaskFragment extends Fragment implements RequestTask.OnRequestTa
                     break;
                 case R.id.BtnAddRequestTime:
                     TimeSelection();
+                    break;
+                case R.id.BtnAddTaskClient:
+                    ClientSelection();
                     break;
             }
         }
@@ -171,7 +220,26 @@ public class AddTaskFragment extends Fragment implements RequestTask.OnRequestTa
 
     @Override
     public void ResponseDataReady(String response) {
+        JSONArray array = null;
+        try {
+           List<EmployeeModel> models = new ArrayList<EmployeeModel>();
+            array = new JSONArray(response);
+            for(int i=0;i<array.length();i++) {
+                EmployeeModel model = new EmployeeModel();
+                JSONObject object = (JSONObject)array.getJSONObject(i);
+                model.set_phone(object.getString("mobile"));
+                model.set_chinese(object.getString("name"));
+                model.set_id(object.getString("id"));
+                models.add(model);
+            }
 
+            ArrayAdapter<EmployeeModel> dataAdapter = new ArrayAdapter<EmployeeModel>(this.getContext(),
+                    android.R.layout.simple_spinner_item, models);
+            _spinnerUsers.setAdapter(dataAdapter);
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -189,4 +257,15 @@ public class AddTaskFragment extends Fragment implements RequestTask.OnRequestTa
         public void onFragmentInteraction(Uri uri);
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (requestCode)
+        {
+            case 0:
+                Log.i(_tag,data.getExtras().getString("CID"));
+                Log.i(_tag,data.getExtras().getString("CName"));
+                _txtClient.setText(data.getExtras().getString("CName"));
+                break;
+        }
+    }
 }

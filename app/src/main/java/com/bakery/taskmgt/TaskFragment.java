@@ -108,8 +108,9 @@ public class TaskFragment extends Fragment  implements RequestTask.OnRequestTask
         }
 
         //初始化Adapter数据. 绑定Adapter和ListView
-        _listData = new ArrayList<HashMap<String, Object>>();
-        _adapter = new TaskAdapter(this.getActivity(), _listData, getFragmentManager());
+        this._listData = new ArrayList<HashMap<String, Object>>();
+        this._adapter = new TaskAdapter(this.getActivity(), _listData, getFragmentManager());
+        this._listView.setAdapter(_adapter);
 
         LoadData();
         //TODO 点击加载更多的分页功能.
@@ -176,7 +177,6 @@ public class TaskFragment extends Fragment  implements RequestTask.OnRequestTask
                 _listData.add(tempHashMap);
             }
 
-            this._listView.setAdapter(_adapter);
             _adapter.notifyDataSetChanged();
         } catch (JSONException e) {
             e.printStackTrace();

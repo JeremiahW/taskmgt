@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:shrinkColumns="0,2" android:stretchColumns="1,3">
+        <TableRow>
+            <TextView android:layout_width="wrap_content"  android:singleLine="true"
+                android:ellipsize="end"
+                android:layout_height="wrap_content" android:text="@string/clientname" />
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"  android:id="@+id/ClientItemCName"
+                android:layout_span="3" />
+        </TableRow>
+        <TableRow>
+            <TextView android:layout_width="wrap_content"  android:singleLine="true"
+                android:ellipsize="end"
+                android:layout_height="wrap_content" android:text="@string/clientcontact" />
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"  android:id="@+id/ClientItemContact" />
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="@string/clientphone"  android:singleLine="true"
+                android:ellipsize="end" />
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"  android:id="@+id/ClientItemPhone" />
+        </TableRow>
+        <TableRow>
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="@string/clientaddress"  android:singleLine="true"
+                android:ellipsize="end" />
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"  android:id="@+id/ClientItemAddress"
+                android:layout_span="3" />
+        </TableRow>
+    </TableLayout>
+</LinearLayout>

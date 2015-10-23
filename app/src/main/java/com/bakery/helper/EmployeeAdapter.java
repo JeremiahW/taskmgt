@@ -10,6 +10,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.bakery.model.EmployeeItem;
 import com.bakery.taskmgt.R;
 import com.bakery.taskmgt.TaskFragment;
 

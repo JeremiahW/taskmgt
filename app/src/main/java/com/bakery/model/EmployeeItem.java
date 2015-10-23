@@ -1,4 +1,4 @@
-package com.bakery.helper;
+package com.bakery.model;
 
 import android.widget.ImageButton;
 import android.widget.TextView;

@@ -28,4 +28,9 @@
     <string name="visit_dialog_person">回访人</string>
     <string name="visit_dialog_result">回访结果</string>
     <string name="visit_dialog_remark">回访备注</string>
+    <string name="clientname">客户名称</string>
+    <string name="clientcontact">联系人</string>
+    <string name="clientphone">联系电话</string>
+    <string name="clientaddress">地址</string>
+    <string name="title_activity_client">ClientActivity</string>
 </resources>
