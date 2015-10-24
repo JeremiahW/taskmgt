@@ -2,17 +2,15 @@ package com.bakery.taskmgt;
 
 import android.app.Activity;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.JsonReader;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.bakery.helper.EmployeeAdapter;
+import com.bakery.adapter.EmployeeAdapter;
 import com.bakery.helper.RequestTask;
 import com.bakery.helper.RequestTaskParam;
 import com.bakery.helper.URLHelper;
@@ -21,20 +19,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-
-import javax.net.ssl.HttpsURLConnection;
 
 
 /**

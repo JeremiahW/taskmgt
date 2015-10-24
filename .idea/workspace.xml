@@ -21,26 +21,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="57943cff-40de-4eab-ba72-6306cc21627b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/bakery/taskmgt/ClientActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/bakery/helper/ClientAdapter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/bakery/model/ClientItem.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/bakery/model/EmployeeModel.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_client.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/client_item.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/bakery/helper/GlobalHelper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/bakery/model/ServiceTypeModel.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/bakery/taskmgt/AddTaskFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/bakery/taskmgt/AddTaskFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/bakery/helper/AssignTaskAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/bakery/helper/AssignTaskAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/bakery/helper/EmployeeAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/bakery/helper/EmployeeAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/bakery/taskmgt/LandingActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/bakery/taskmgt/LandingActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/bakery/helper/TaskAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/bakery/helper/TaskAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/bakery/taskmgt/AssignTaskFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/bakery/taskmgt/AssignTaskFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/bakery/taskmgt/ClientActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/bakery/taskmgt/ClientActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/bakery/taskmgt/EmployeeFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/bakery/taskmgt/EmployeeFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/bakery/taskmgt/TaskFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/bakery/taskmgt/TaskFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/bakery/helper/URLHelper.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/bakery/helper/URLHelper.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_add_task.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_add_task.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="D:\SourceCode\Android\taskmgt\app\src\main\java\com\bakery\helper\AssignTaskItem.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/bakery/model/AssignTaskItem.java" />
-      <change type="MOVED" beforePath="D:\SourceCode\Android\taskmgt\app\src\main\java\com\bakery\helper\EmployeeItem.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/bakery/model/EmployeeItem.java" />
-      <change type="MOVED" beforePath="D:\SourceCode\Android\taskmgt\app\src\main\java\com\bakery\helper\TaskItem.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/bakery/model/TaskItem.java" />
+      <change type="MOVED" beforePath="D:\SourceCode\Android\taskmgt\app\src\main\java\com\bakery\helper\AssignTaskAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/bakery/adapter/AssignTaskAdapter.java" />
+      <change type="MOVED" beforePath="D:\SourceCode\Android\taskmgt\app\src\main\java\com\bakery\helper\ClientAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/bakery/adapter/ClientAdapter.java" />
+      <change type="MOVED" beforePath="D:\SourceCode\Android\taskmgt\app\src\main\java\com\bakery\helper\EmployeeAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/bakery/adapter/EmployeeAdapter.java" />
+      <change type="MOVED" beforePath="D:\SourceCode\Android\taskmgt\app\src\main\java\com\bakery\helper\TaskAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/bakery/adapter/TaskAdapter.java" />
     </list>
     <ignored path="taskmgt.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -68,87 +62,87 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="fragment_add_task.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_add_task.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.24476987">
-              <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-              <folding>
-                <element signature="e#628#1034#0" expanded="false" />
-                <element signature="e#1041#1446#0" expanded="false" />
-                <element signature="e#1453#1648#0" expanded="false" />
-                <element signature="e#1655#2041#0" expanded="false" />
-                <element signature="e#2378#2573#0" expanded="false" />
-                <element signature="e#2580#2755#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AddTaskFragment.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AddTaskFragment.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bakery/taskmgt/AddTaskFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="271" column="0" selection-start-line="271" selection-start-column="0" selection-end-line="271" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.5581854">
+              <caret line="229" column="56" selection-start-line="229" selection-start-column="56" selection-end-line="229" selection-end-column="56" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#InitDateTimeParam#0;class#AddTaskFragment#0" expanded="false" />
+                <element signature="e#5404#5420#0" expanded="true" />
+                <element signature="method#InitServiceTypeSelection#0;class#AddTaskFragment#0" expanded="false" />
+                <element signature="e#6009#6027#0" expanded="true" />
                 <element signature="method#DateSelection#0;class#AddTaskFragment#0" expanded="false" />
+                <element signature="e#6601#6917#0" expanded="true" />
+                <element signature="e#6916#6917#0" expanded="true" />
                 <element signature="method#TimeSelection#0;class#AddTaskFragment#0" expanded="false" />
-                <element signature="method#onButtonPressed#0;class#AddTaskFragment#0" expanded="false" />
-                <element signature="method#onAttach#0;class#AddTaskFragment#0" expanded="false" />
-                <element signature="method#onDetach#0;class#AddTaskFragment#0" expanded="false" />
-                <element signature="method#ResponseDataReady#0;class#AddTaskFragment#0" expanded="false" />
-                <element signature="e#7767#7782#0" expanded="true" />
-                <element signature="e#8306#8321#0" expanded="true" />
+                <element signature="method#ClientSelection#0;class#AddTaskFragment#0" expanded="false" />
+                <element signature="e#8353#8369#0" expanded="true" />
+                <element signature="e#9110#9696#0" expanded="true" />
+                <element signature="e#9695#9696#0" expanded="true" />
+                <element signature="e#10850#10865#0" expanded="true" />
+                <element signature="e#11389#11404#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="activity_client.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_client.xml">
+      <file leaf-file-name="GlobalHelper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bakery/helper/GlobalHelper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.137931">
-              <caret line="23" column="55" selection-start-line="23" selection-start-column="55" selection-end-line="23" selection-end-column="55" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="6" column="18" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
               <folding />
             </state>
           </provider>
-          <provider editor-type-id="android-designer">
-            <state />
+        </entry>
+      </file>
+      <file leaf-file-name="ServiceTypeModel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bakery/model/ServiceTypeModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="47" column="11" selection-start-line="47" selection-start-column="11" selection-end-line="47" selection-end-column="11" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#342#343#0" expanded="true" />
+                <element signature="e#368#369#0" expanded="true" />
+                <element signature="e#406#407#0" expanded="true" />
+                <element signature="e#436#437#0" expanded="true" />
+                <element signature="e#471#472#0" expanded="true" />
+                <element signature="e#502#503#0" expanded="true" />
+                <element signature="e#550#551#0" expanded="true" />
+                <element signature="e#590#591#0" expanded="true" />
+                <element signature="e#690#691#0" expanded="true" />
+                <element signature="e#732#733#0" expanded="true" />
+              </folding>
+            </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ClientActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bakery/taskmgt/ClientActivity.java">
+      <file leaf-file-name="URLHelper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bakery/helper/URLHelper.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="80" column="55" selection-start-line="80" selection-start-column="55" selection-end-line="80" selection-end-column="55" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2302#2447#0" expanded="true" />
-                <element signature="e#2446#2447#0" expanded="true" />
-                <element signature="e#2501#3323#0" expanded="true" />
-                <element signature="e#3322#3323#0" expanded="true" />
-                <element signature="method#RequestData#0;class#ClientActivity#0" expanded="false" />
-                <element signature="method#ResponseDataReady#0;class#ClientActivity#0" expanded="false" />
-                <element signature="method#onRefresh#0;class#ClientActivity#0" expanded="false" />
-                <element signature="class#5249:5834" expanded="false" />
-              </folding>
+              <caret line="12" column="75" selection-start-line="12" selection-start-column="75" selection-end-line="12" selection-end-column="75" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="ClientAdapter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bakery/helper/ClientAdapter.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bakery/adapter/ClientAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="70" column="54" selection-start-line="70" selection-start-column="52" selection-end-line="70" selection-end-column="54" />
               <folding>
+                <element signature="imports" expanded="false" />
                 <element signature="method#ClientAdapter#0;class#ClientAdapter#0" expanded="false" />
+                <element signature="e#1014#1015#0" expanded="false" />
+                <element signature="e#1049#1050#0" expanded="false" />
+                <element signature="e#1106#1107#0" expanded="false" />
+                <element signature="e#1148#1149#0" expanded="false" />
+                <element signature="e#1205#1206#0" expanded="false" />
+                <element signature="e#1236#1237#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -1945,8 +1939,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/com/bakery/helper/RequestTaskParam.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/bakery/helper/EmployeeItem.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/employee_item.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/bakery/helper/EmployeeAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/bakery/taskmgt/OnFragementInteractionListener.java" />
@@ -1974,7 +1966,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/task_item.xml" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/bakery/taskmgt/AssignTaskFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/bakery/helper/TaskItem.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/visit.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/bakery/helper/TaskAdapter.java" />
@@ -1982,7 +1973,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/bakery/helper/Converter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/addtask.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/bakery/taskmgt/LandingActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/bakery/helper/URLHelper.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/bakery/helper/EmployeeSpinnerAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/employee_spinner_layout.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/bakery/model/EmployeeModel.java" />
@@ -1993,9 +1983,13 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/client_item.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/bakery/taskmgt/TaskFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/bakery/taskmgt/ClientActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/bakery/taskmgt/AddTaskFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_client.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/bakery/model/ServiceTypeModel.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/bakery/taskmgt/AssignTaskFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_add_task.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/bakery/helper/URLHelper.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/bakery/helper/GlobalHelper.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/bakery/taskmgt/AddTaskFragment.java" />
       </list>
     </option>
   </component>
@@ -2038,34 +2032,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="library">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-        <subPane subId="Default">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="PackagesPane">
         <subPane>
           <PATH>
@@ -2083,38 +2049,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="taskmgt" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="taskmgt" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="taskmgt" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layout" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -2180,6 +2114,10 @@
               <option name="myItemId" value="bakery" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -2200,6 +2138,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="helper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="taskmgt" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bakery" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="adapter" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -2253,6 +2213,34 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="library">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+        <subPane subId="Default">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -2550,7 +2538,13 @@
       <option name="project" value="LOCAL" />
       <updated>1445523450088</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Add Task Layout">
+      <created>1445588777170</created>
+      <option name="number" value="00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1445588777170</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TodoView">
@@ -2651,14 +2645,15 @@
     <MESSAGE value="Support Refresh to Update.&#10;Support Lift to load More.&#10;Change Left Menu to Android Drawer." />
     <MESSAGE value="添加显示回访信息.&#10;增加Global格式化日期." />
     <MESSAGE value="AddTaskFragement" />
-    <option name="LAST_COMMIT_MESSAGE" value="AddTaskFragement" />
+    <MESSAGE value="Add Task Layout" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Task Layout" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="83" />
+      <option name="time" value="89" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="app">
@@ -2668,20 +2663,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5086207">
-          <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bakery/helper/RequestTaskParam.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2837,15 +2818,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6324168">
           <caret line="24" column="30" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bakery/model/AssignTaskItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27496383">
-          <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2876,7 +2848,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bakery/helper/TaskAdapter.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bakery/adapter/TaskAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.8952381">
           <caret line="128" column="31" selection-start-line="128" selection-start-column="31" selection-end-line="128" selection-end-column="31" />
@@ -2890,7 +2862,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5877712">
           <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2916,22 +2887,6 @@
       </provider>
       <provider editor-type-id="android-designer">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bakery/taskmgt/AssignTaskFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.499014">
-          <caret line="143" column="45" selection-start-line="143" selection-start-column="45" selection-end-line="143" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bakery/helper/URLHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4122288">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bakery/model/EmployeeModel.java">
@@ -2973,7 +2928,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2623274">
           <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2981,7 +2935,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2989,20 +2942,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7495069">
           <caret line="112" column="28" selection-start-line="102" selection-start-column="7" selection-end-line="112" selection-end-column="28" />
-          <folding>
-            <element signature="e#4735#4760#0" expanded="true" />
-            <element signature="e#4922#4938#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bakery/helper/AssignTaskAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="32" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3010,7 +2950,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="44" column="21" selection-start-line="41" selection-start-column="11" selection-end-line="44" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3055,7 +2994,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bakery/helper/EmployeeAdapter.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bakery/adapter/EmployeeAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="76" column="61" selection-start-line="76" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
@@ -3063,38 +3002,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bakery/taskmgt/LandingActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="59" column="20" selection-start-line="59" selection-start-column="20" selection-end-line="59" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bakery/helper/ClientAdapter.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bakery/adapter/ClientAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="70" column="54" selection-start-line="70" selection-start-column="52" selection-end-line="70" selection-end-column="54" />
           <folding>
+            <element signature="imports" expanded="false" />
             <element signature="method#ClientAdapter#0;class#ClientAdapter#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bakery/taskmgt/ClientActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="80" column="55" selection-start-line="80" selection-start-column="55" selection-end-line="80" selection-end-column="55" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2302#2447#0" expanded="true" />
-            <element signature="e#2446#2447#0" expanded="true" />
-            <element signature="e#2501#3323#0" expanded="true" />
-            <element signature="e#3322#3323#0" expanded="true" />
-            <element signature="method#RequestData#0;class#ClientActivity#0" expanded="false" />
-            <element signature="method#ResponseDataReady#0;class#ClientActivity#0" expanded="false" />
-            <element signature="method#onRefresh#0;class#ClientActivity#0" expanded="false" />
-            <element signature="class#5249:5834" expanded="false" />
+            <element signature="e#1014#1015#0" expanded="false" />
+            <element signature="e#1049#1050#0" expanded="false" />
+            <element signature="e#1106#1107#0" expanded="false" />
+            <element signature="e#1148#1149#0" expanded="false" />
+            <element signature="e#1205#1206#0" expanded="false" />
+            <element signature="e#1236#1237#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -3107,29 +3027,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bakery/taskmgt/AddTaskFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="271" column="0" selection-start-line="271" selection-start-column="0" selection-end-line="271" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#InitDateTimeParam#0;class#AddTaskFragment#0" expanded="false" />
-            <element signature="method#DateSelection#0;class#AddTaskFragment#0" expanded="false" />
-            <element signature="method#TimeSelection#0;class#AddTaskFragment#0" expanded="false" />
-            <element signature="method#onButtonPressed#0;class#AddTaskFragment#0" expanded="false" />
-            <element signature="method#onAttach#0;class#AddTaskFragment#0" expanded="false" />
-            <element signature="method#onDetach#0;class#AddTaskFragment#0" expanded="false" />
-            <element signature="method#ResponseDataReady#0;class#AddTaskFragment#0" expanded="false" />
-            <element signature="e#7767#7782#0" expanded="true" />
-            <element signature="e#8306#8321#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_client.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.137931">
-          <caret line="23" column="55" selection-start-line="23" selection-start-column="55" selection-end-line="23" selection-end-column="55" />
+        <state vertical-scroll-proportion="0.39728096">
+          <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
           <folding />
         </state>
       </provider>
@@ -3137,22 +3038,125 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bakery/adapter/AssignTaskAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.6982249">
+          <caret line="20" column="32" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bakery/taskmgt/AssignTaskFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.36291912">
+          <caret line="101" column="33" selection-start-line="101" selection-start-column="33" selection-end-line="101" selection-end-column="33" />
+          <folding>
+            <element signature="method#onAttach#0;class#AssignTaskFragment#0" expanded="false" />
+            <element signature="method#ResponseDataReady#0;class#AssignTaskFragment#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bakery/model/AssignTaskItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.37475345">
+          <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bakery/taskmgt/LandingActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="59" column="20" selection-start-line="59" selection-start-column="20" selection-end-line="59" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bakery/taskmgt/ClientActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6134122">
+          <caret line="78" column="55" selection-start-line="78" selection-start-column="55" selection-end-line="78" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#RequestData#0;class#ClientActivity#0" expanded="false" />
+            <element signature="method#ResponseDataReady#0;class#ClientActivity#0" expanded="false" />
+            <element signature="method#onRefresh#0;class#ClientActivity#0" expanded="false" />
+            <element signature="class#5189:5774" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bakery/helper/URLHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="75" selection-start-line="12" selection-start-column="75" selection-end-line="12" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bakery/model/ServiceTypeModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="47" column="11" selection-start-line="47" selection-start-column="11" selection-end-line="47" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#342#343#0" expanded="true" />
+            <element signature="e#368#369#0" expanded="true" />
+            <element signature="e#406#407#0" expanded="true" />
+            <element signature="e#436#437#0" expanded="true" />
+            <element signature="e#471#472#0" expanded="true" />
+            <element signature="e#502#503#0" expanded="true" />
+            <element signature="e#550#551#0" expanded="true" />
+            <element signature="e#590#591#0" expanded="true" />
+            <element signature="e#690#691#0" expanded="true" />
+            <element signature="e#732#733#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bakery/helper/GlobalHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="18" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_add_task.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.24476987">
-          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.71548116">
+          <caret line="76" column="48" selection-start-line="76" selection-start-column="48" selection-end-line="76" selection-end-column="48" />
           <folding>
-            <element signature="e#628#1034#0" expanded="false" />
-            <element signature="e#1041#1446#0" expanded="false" />
-            <element signature="e#1453#1648#0" expanded="false" />
-            <element signature="e#1655#2041#0" expanded="false" />
-            <element signature="e#2378#2573#0" expanded="false" />
-            <element signature="e#2580#2755#0" expanded="false" />
+            <element signature="e#3157#3295#0" expanded="false" />
           </folding>
         </state>
       </provider>
       <provider editor-type-id="android-designer">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bakery/taskmgt/AddTaskFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5581854">
+          <caret line="229" column="56" selection-start-line="229" selection-start-column="56" selection-end-line="229" selection-end-column="56" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5404#5420#0" expanded="true" />
+            <element signature="method#InitServiceTypeSelection#0;class#AddTaskFragment#0" expanded="false" />
+            <element signature="e#6009#6027#0" expanded="true" />
+            <element signature="method#DateSelection#0;class#AddTaskFragment#0" expanded="false" />
+            <element signature="e#6601#6917#0" expanded="true" />
+            <element signature="e#6916#6917#0" expanded="true" />
+            <element signature="method#TimeSelection#0;class#AddTaskFragment#0" expanded="false" />
+            <element signature="method#ClientSelection#0;class#AddTaskFragment#0" expanded="false" />
+            <element signature="e#8353#8369#0" expanded="true" />
+            <element signature="e#9110#9696#0" expanded="true" />
+            <element signature="e#9695#9696#0" expanded="true" />
+            <element signature="e#10850#10865#0" expanded="true" />
+            <element signature="e#11389#11404#0" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
   </component>

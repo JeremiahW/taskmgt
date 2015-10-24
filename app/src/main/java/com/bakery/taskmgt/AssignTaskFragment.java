@@ -11,8 +11,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.bakery.helper.AssignTaskAdapter;
-import com.bakery.helper.EmployeeAdapter;
+import com.bakery.adapter.AssignTaskAdapter;
 import com.bakery.helper.RequestTask;
 import com.bakery.helper.RequestTaskParam;
 import com.bakery.helper.URLHelper;
@@ -100,8 +99,7 @@ public class AssignTaskFragment extends Fragment implements RequestTask.OnReques
 
         RequestTaskParam param = new RequestTaskParam();
         param.setUrl(URLHelper.UsersUrl);
-        param.setPostData(params)
-        ;
+        param.setPostData(params);
         RequestTask task = new RequestTask();
         task.SetRequestTaskCompletedListener(this);
         task.execute(param);
@@ -136,6 +134,11 @@ public class AssignTaskFragment extends Fragment implements RequestTask.OnReques
 
     @Override
     public void ResponseDataReady(String response) {
+        if(!response.isEmpty() && response.toString().equals("AssignSuccessful"))
+        {
+            _fragementManger.popBackStack();
+        }
+
         JSONArray array = null;
         try {
             ArrayList<HashMap<String, Object>> arrayList = new ArrayList<HashMap<String, Object>>();
@@ -159,7 +162,19 @@ public class AssignTaskFragment extends Fragment implements RequestTask.OnReques
                     HashMap<String, Object> item = (HashMap<String, Object>)  _list.getItemAtPosition(position);
                     String empId = item.get("empId").toString();
                     //TODO Call Api to Assign Task and then popBackStack();
-                    _fragementManger.popBackStack();
+
+                    HashMap<String, String> params = new HashMap<String, String>();
+                    params.put("uid", empId);
+                    params.put("taskid", _taskId);
+
+                    RequestTaskParam param = new RequestTaskParam();
+                    param.setUrl(URLHelper.AssignTaskUrl);
+                    param.setPostData(params)
+                    ;
+                    RequestTask task = new RequestTask();
+                    task.SetRequestTaskCompletedListener(AssignTaskFragment.this);
+                    task.execute(param);
+
                 }
             });
         } catch (JSONException e) {

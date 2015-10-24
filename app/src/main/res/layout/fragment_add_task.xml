@@ -5,8 +5,8 @@
   <TableLayout
       android:layout_width="fill_parent"
       android:layout_height="fill_parent"
-      android:stretchColumns="0"
-      android:shrinkColumns="1"  >
+      android:stretchColumns="0,1"
+      android:shrinkColumns="2"  >
       <TableRow>
           <TextView android:layout_width="wrap_content"
               android:layout_height="wrap_content"
@@ -46,10 +46,14 @@
       <TableRow>
           <TextView android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              android:text="选择负责人" android:layout_span="2"/>
+              android:text="选择负责人"/>
+          <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="服务类型"/>
       </TableRow>
       <TableRow>
-          <Spinner android:id="@+id/SpinnerTaskAddUser"  android:layout_span="2"></Spinner>
+          <Spinner android:id="@+id/SpinnerTaskAddUser"  ></Spinner>
+          <Spinner android:id="@+id/SpinnerServiceType"  ></Spinner>
       </TableRow>
       <TableRow>
           <TextView android:layout_width="wrap_content"
@@ -59,7 +63,8 @@
       <TableRow>
           <EditText android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              android:layout_span="2"/>
+              android:layout_span="2"
+              android:id="@+id/TxtAddTaskContent"/>
       </TableRow>
       <TableRow>
           <LinearLayout android:layout_span="2" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent">
@@ -68,16 +73,22 @@
                   android:text="费用"/>
               <EditText android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
-                  android:text="99.99"/>
-              <RadioGroup android:orientation="horizontal" android:layout_height="wrap_content" android:layout_width="wrap_content">
+                  android:inputType="numberDecimal|numberSigned"
+                  android:id="@+id/TxtAddTaskFee"/>
+              <RadioGroup android:orientation="horizontal" android:layout_height="fill_parent" android:layout_width="fill_parent" >
                   <RadioButton
                       android:layout_width="wrap_content"
-                      android:layout_height="wrap_content" android:text="含税" />
+                      android:layout_height="wrap_content" android:text="含税"
+                      android:id="@+id/RbAddTaskIncludeTax"/>
                   <RadioButton
                       android:layout_width="wrap_content"
-                      android:layout_height="wrap_content" android:text="不含税" android:checked="true" />
+                      android:layout_height="wrap_content" android:text="不含税"
+                      android:id="@+id/RbAddTaskNoTax"/>
               </RadioGroup>
           </LinearLayout>
+      </TableRow>
+      <TableRow>
+          <Button android:text="添加任务" android:id="@+id/BtnAddTask" android:layout_span="2"  />
       </TableRow>
   </TableLayout>
 

@@ -15,13 +15,12 @@ import android.widget.TextView;
 
 import com.bakery.helper.RequestTask;
 import com.bakery.helper.RequestTaskParam;
-import com.bakery.helper.TaskAdapter;
+import com.bakery.adapter.TaskAdapter;
 import com.bakery.helper.URLHelper;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.HashMap;

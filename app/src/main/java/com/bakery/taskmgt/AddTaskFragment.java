@@ -1,13 +1,14 @@
 package com.bakery.taskmgt;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
+ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,14 +16,16 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TimePicker;
 
-import com.bakery.helper.ClientAdapter;
+import com.bakery.helper.GlobalHelper;
 import com.bakery.helper.RequestTask;
 import com.bakery.helper.RequestTaskParam;
 import com.bakery.helper.URLHelper;
 import com.bakery.model.EmployeeModel;
+import com.bakery.model.ServiceTypeModel;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -92,7 +95,16 @@ public class AddTaskFragment extends Fragment implements RequestTask.OnRequestTa
     private EditText _txtRequestDate;
     private EditText _txtReuqestTime;
     private EditText _txtClient;
+    private EditText _txtFee;
+    private EditText _txtContent;
+    private RadioButton _rbInTax;
+    private RadioButton _rbNoTax;
     private Spinner _spinnerUsers;
+    private Spinner _spinnerServiceType;
+    private Button _btnSubmit;
+    private String _cid;
+    private String _uid;
+    private String _typeId;
     private int _year;
     private int _month;
     private int _day;
@@ -109,21 +121,29 @@ public class AddTaskFragment extends Fragment implements RequestTask.OnRequestTa
         this._btnPopTime = (Button)rootView.findViewById(R.id.BtnAddRequestTime);
         this._txtReuqestTime = (EditText)rootView.findViewById(R.id.TxtAddTaskRequestTime);
         this._txtClient = (EditText)rootView.findViewById(R.id.TxtAddTaskClient);
+        this._txtFee = (EditText)rootView.findViewById(R.id.TxtAddTaskFee);
+        this._txtContent = (EditText) rootView.findViewById(R.id.TxtAddTaskContent);
+        this._rbInTax = (RadioButton)rootView.findViewById(R.id.RbAddTaskIncludeTax);
         this._spinnerUsers = (Spinner)rootView.findViewById(R.id.SpinnerTaskAddUser);
+        this._spinnerServiceType = (Spinner)rootView.findViewById(R.id.SpinnerServiceType);
         this._btnPopClient = (Button)rootView.findViewById(R.id.BtnAddTaskClient);
+        this._btnSubmit = (Button)rootView.findViewById(R.id.BtnAddTask);
         this._btnPopDate.setOnClickListener(btnClickListener);
         this._btnPopTime.setOnClickListener(btnClickListener);
         this._btnPopClient.setOnClickListener(btnClickListener);
+        this._btnSubmit.setOnClickListener(btnClickListener);
+
 
         InitDateTimeParam();
         InitUserSelection();
+        InitServiceTypeSelection();
         return rootView;
     }
 
     private void InitUserSelection()
     {
         HashMap<String, String> params = new HashMap<String, String>();
-        params.put("page","1");
+        params.put("page", "1");
         params.put("pageSize", "10");
 
         RequestTaskParam param = new RequestTaskParam();
@@ -133,6 +153,16 @@ public class AddTaskFragment extends Fragment implements RequestTask.OnRequestTa
         RequestTask task = new RequestTask();
         task.SetRequestTaskCompletedListener(this);
         task.execute(param);
+    }
+
+
+    private void InitServiceTypeSelection()
+    {
+        ServiceTypeModel model = new ServiceTypeModel();
+        ArrayList<ServiceTypeModel> models = model.get_serviceTypes();
+        ArrayAdapter<ServiceTypeModel> adapter = new ArrayAdapter<ServiceTypeModel>(this.getContext(),
+                android.R.layout.simple_spinner_item, models);
+        _spinnerServiceType.setAdapter(adapter);
     }
 
     private void InitDateTimeParam()
@@ -176,6 +206,40 @@ public class AddTaskFragment extends Fragment implements RequestTask.OnRequestTa
         startActivityForResult(intent, 0);
      }
 
+    public void SubmitTask()
+    {
+        String date = _txtRequestDate.getText().toString();
+        String time = _txtReuqestTime.getText().toString();
+        String fee = _txtFee.getText().toString();
+        String content = _txtContent.getText().toString();
+        String intax = _rbInTax.isChecked() ? "1" : "0";
+        EmployeeModel user = (EmployeeModel)_spinnerUsers.getSelectedItem();
+        ServiceTypeModel service = (ServiceTypeModel)_spinnerServiceType.getSelectedItem();
+        if(!this._cid.isEmpty() && user != null
+                && !date.isEmpty() && !time.isEmpty()
+                && !fee.isEmpty() )
+        {
+            HashMap<String, String> params = new HashMap<String, String>();
+            params.put("requestdate",date+" "+time);
+            params.put("fee", fee);
+            params.put("content", content);
+            params.put("intax", intax);
+            params.put("clientid", _cid);
+            params.put("assignuserid", user.get_id());
+            params.put("servicetypeid", service.get_id());
+            params.put("uid", GlobalHelper.LoginUserId);
+
+            RequestTaskParam param = new RequestTaskParam();
+            param.setUrl(URLHelper.AddTaskUrl);
+            param.setPostData(params);
+            RequestTask task = new RequestTask();
+            task.SetRequestTaskCompletedListener(this);
+            task.execute(param);
+        }
+
+
+    }
+
     View.OnClickListener btnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -189,6 +253,9 @@ public class AddTaskFragment extends Fragment implements RequestTask.OnRequestTa
                     break;
                 case R.id.BtnAddTaskClient:
                     ClientSelection();
+                    break;
+                case R.id.BtnAddTask:
+                    SubmitTask();
                     break;
             }
         }
@@ -220,6 +287,16 @@ public class AddTaskFragment extends Fragment implements RequestTask.OnRequestTa
 
     @Override
     public void ResponseDataReady(String response) {
+
+        if(!response.isEmpty() && response.equals("AddSuccessful"))
+        {
+            new AlertDialog.Builder(getContext())
+                    .setTitle("添加任务成功")
+                    .setMessage("任务添加成功")
+                    .show();
+            return;
+        }
+
         JSONArray array = null;
         try {
            List<EmployeeModel> models = new ArrayList<EmployeeModel>();
@@ -259,13 +336,13 @@ public class AddTaskFragment extends Fragment implements RequestTask.OnRequestTa
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        switch (requestCode)
-        {
-            case 0:
-                Log.i(_tag,data.getExtras().getString("CID"));
-                Log.i(_tag,data.getExtras().getString("CName"));
-                _txtClient.setText(data.getExtras().getString("CName"));
-                break;
-        }
+            if(data == null) return;
+            switch (requestCode)
+            {
+                case 0:
+                    this._txtClient.setText(data.getExtras().getString("CName"));
+                   this._cid = data.getExtras().getString("CID");
+                    break;
+            }
     }
 }

@@ -1,4 +1,4 @@
-package com.bakery.helper;
+package com.bakery.adapter;
 
 import android.content.Context;
 import android.support.v4.app.FragmentManager;

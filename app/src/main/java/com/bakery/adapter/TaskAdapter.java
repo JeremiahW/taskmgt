@@ -1,4 +1,4 @@
-package com.bakery.helper;
+package com.bakery.adapter;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -12,6 +12,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.bakery.helper.Converter;
 import com.bakery.model.TaskItem;
 import com.bakery.taskmgt.AssignTaskFragment;
 import com.bakery.taskmgt.R;

@@ -12,10 +12,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
-import com.bakery.helper.ClientAdapter;
+import com.bakery.adapter.ClientAdapter;
 import com.bakery.helper.RequestTask;
 import com.bakery.helper.RequestTaskParam;
-import com.bakery.helper.TaskAdapter;
 import com.bakery.helper.URLHelper;
 
 import org.json.JSONArray;
@@ -23,7 +22,6 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 public class ClientActivity extends Activity implements
         RequestTask.OnRequestTaskCompletedListener,
