@@ -21,20 +21,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="57943cff-40de-4eab-ba72-6306cc21627b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/bakery/helper/GlobalHelper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/bakery/model/ServiceTypeModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/bakery/taskmgt/AddTaskFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/bakery/taskmgt/AddTaskFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/bakery/taskmgt/AssignTaskFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/bakery/taskmgt/AssignTaskFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/bakery/taskmgt/ClientActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/bakery/taskmgt/ClientActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/bakery/taskmgt/EmployeeFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/bakery/taskmgt/EmployeeFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/bakery/taskmgt/TaskFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/bakery/taskmgt/TaskFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/bakery/helper/URLHelper.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/bakery/helper/URLHelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_add_task.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_add_task.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="D:\SourceCode\Android\taskmgt\app\src\main\java\com\bakery\helper\AssignTaskAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/bakery/adapter/AssignTaskAdapter.java" />
-      <change type="MOVED" beforePath="D:\SourceCode\Android\taskmgt\app\src\main\java\com\bakery\helper\ClientAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/bakery/adapter/ClientAdapter.java" />
-      <change type="MOVED" beforePath="D:\SourceCode\Android\taskmgt\app\src\main\java\com\bakery\helper\EmployeeAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/bakery/adapter/EmployeeAdapter.java" />
-      <change type="MOVED" beforePath="D:\SourceCode\Android\taskmgt\app\src\main\java\com\bakery\helper\TaskAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/bakery/adapter/TaskAdapter.java" />
     </list>
     <ignored path="taskmgt.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -2544,7 +2531,13 @@
       <option name="project" value="LOCAL" />
       <updated>1445588777170</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Add Task Database Logic">
+      <created>1445657074849</created>
+      <option name="number" value="00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1445657074849</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TodoView">
@@ -2646,7 +2639,8 @@
     <MESSAGE value="添加显示回访信息.&#10;增加Global格式化日期." />
     <MESSAGE value="AddTaskFragement" />
     <MESSAGE value="Add Task Layout" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Task Layout" />
+    <MESSAGE value="Add Task Database Logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Task Database Logic" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
