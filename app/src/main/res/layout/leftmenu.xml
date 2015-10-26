@@ -26,14 +26,22 @@
                 android:layout_centerVertical="true"/>
         </TableRow>
         <TableRow android:gravity="center">
-            <ImageButton android:id="@+id/BtnUser"
-                android:src="@drawable/user"
+            <ImageButton android:id="@+id/BtnAddClient"
+                android:src="@drawable/addclient"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"/>
             <ImageButton android:id="@+id/BtnClient"
                 android:src="@drawable/client"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"/>
+        </TableRow>
+        <TableRow android:gravity="center">
+            <ImageButton android:id="@+id/BtnUser"
+                android:src="@drawable/user"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"

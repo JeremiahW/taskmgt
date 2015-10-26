@@ -33,4 +33,11 @@
     <string name="clientphone">联系电话</string>
     <string name="clientaddress">地址</string>
     <string name="title_activity_client">ClientActivity</string>
+    <string name="client_add_name">客户名称</string>
+    <string name="client_add_address">地址:</string>
+    <string name="client_add_contact">联系人:</string>
+    <string name="client_add_landphone">坐机:</string>
+    <string name="client_add_mobile">移动电话:</string>
+    <string name="client_add_fax">传真:</string>
+    <string name="client_add_submit">添加客户</string>
 </resources>

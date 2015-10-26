@@ -24,6 +24,7 @@ public class LandingActivity extends FragmentActivity
     private ImageButton _btnUser;
     private ImageButton _btnCreateTask;
     private ImageButton _btnClient;
+    private ImageButton _btnAddClient;
     private Fragment _mContent;
     private DrawerLayout _leftMenu;
     private ActionBarDrawerToggle _drawerToggle;
@@ -37,8 +38,8 @@ public class LandingActivity extends FragmentActivity
         try {
             this._leftMenu = (DrawerLayout)findViewById(R.id.mainDrawer);
               /*set the shadow for drawer at start(left) or end(right)*/
-            this._leftMenu.setDrawerShadow(R.drawable.logo,
-                    GravityCompat.START);
+          //  this._leftMenu.setDrawerShadow(R.drawable.logo,
+            //        GravityCompat.START);
              this._drawerToggle = new ActionBarDrawerToggle(this, _leftMenu, R.string.leftmenu_open, R.string.leftmenu_close)
             {
                 @Override
@@ -73,7 +74,7 @@ public class LandingActivity extends FragmentActivity
                     savedInstanceState, "mContent");
         }
         setContentView(R.layout.landing);
-        getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new AddTaskFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new AddClientFragment()).commit();
 
     }
 
@@ -83,11 +84,13 @@ public class LandingActivity extends FragmentActivity
         this._btnUser = (ImageButton)findViewById(R.id.BtnUser);
         this._btnCreateTask = (ImageButton)findViewById(R.id.BtnAddTask);
         this._btnClient = (ImageButton)findViewById(R.id.BtnClient);
+        this._btnAddClient = (ImageButton)findViewById(R.id.BtnAddClient);
 
         this._btnTask.setOnClickListener(BtnClick_Listner);
         this._btnUser.setOnClickListener(BtnClick_Listner);
         this._btnCreateTask.setOnClickListener(BtnClick_Listner);
         this._btnClient.setOnClickListener(BtnClick_Listner);
+        this._btnAddClient.setOnClickListener(BtnClick_Listner);
         Log.v(Tag,"BtnTask is clicked");
     }
 
@@ -107,6 +110,9 @@ public class LandingActivity extends FragmentActivity
                     break;
                 case R.id.BtnClient:
                     getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new ClientFragment()).commit();
+                    break;
+                case R.id.BtnAddClient:
+                    getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new AddClientFragment()).commit();
                     break;
             }
         }
