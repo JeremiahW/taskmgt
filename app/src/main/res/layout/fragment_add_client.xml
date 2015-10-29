@@ -1,28 +1,27 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" tools:context="com.bakery.taskmgt.AddClientFragment">
- <TableLayout
-     android:layout_width="fill_parent"
-     android:layout_height="fill_parent" android:shrinkColumns="0" android:stretchColumns="1">
-        <TableRow>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="fill_parent"
+    android:layout_height="fill_parent" tools:context="com.bakery.taskmgt.AddClientFragment"
+    android:shrinkColumns="0" android:stretchColumns="1">
+
+        <TableRow >
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/client_add_name" />
             <EditText
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:id="@+id/TxtAddClientName" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/TxtAddClientName"/>
         </TableRow>
-        <TableRow>
+        <TableRow >
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/client_add_address" />
             <EditText
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:id="@+id/TxtAddAddress" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/TxtAddClientAddress" />
         </TableRow>
         <TableRow>
             <TextView
@@ -30,8 +29,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/client_add_contact" />
             <EditText
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:id="@+id/TxtAddClientContact" />
         </TableRow>
      <TableRow>
@@ -40,8 +39,8 @@
              android:layout_height="wrap_content"
              android:text="@string/client_add_landphone" />
          <EditText
-             android:layout_width="fill_parent"
-             android:layout_height="fill_parent"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
              android:id="@+id/TxtAddClientLandPhone" />
      </TableRow>
      <TableRow>
@@ -50,8 +49,8 @@
              android:layout_height="wrap_content"
              android:text="@string/client_add_mobile" />
          <EditText
-             android:layout_width="fill_parent"
-             android:layout_height="fill_parent"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
              android:id="@+id/TxtAddClientMobile" />
      </TableRow>
      <TableRow>
@@ -60,12 +59,12 @@
              android:layout_height="wrap_content"
              android:text="@string/client_add_fax" />
          <EditText
-             android:layout_width="fill_parent"
-             android:layout_height="fill_parent"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
              android:id="@+id/TxtAddClientFax" />
      </TableRow>
      <TableRow>
          <Button android:id="@+id/BtnAddClient" android:text="@string/client_add_submit" />
      </TableRow>
-     </TableLayout>
- </FrameLayout>
+
+ </TableLayout>

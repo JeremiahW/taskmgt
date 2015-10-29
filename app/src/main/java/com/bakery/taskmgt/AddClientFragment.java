@@ -1,14 +1,22 @@
 package com.bakery.taskmgt;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.app.Fragment;
+import android.widget.Button;
+import android.widget.EditText;
 
+import com.bakery.helper.GlobalHelper;
 import com.bakery.helper.RequestTask;
+import com.bakery.helper.RequestTaskParam;
+import com.bakery.helper.URLHelper;
+
+import java.util.HashMap;
 
 
 /**
@@ -62,11 +70,63 @@ public class AddClientFragment extends Fragment implements RequestTask.OnRequest
         }
     }
 
+    private EditText _editCName;
+    private EditText _editCAddress;
+    private EditText _editCContact;
+    private EditText _editCLandphone;
+    private EditText _editCMobile;
+    private EditText _editCFax;
+    private Button _btnSubmit;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_add_client, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_add_client, container, false);
+        this._editCName = (EditText)rootView.findViewById(R.id.TxtAddClientName);
+        this._editCAddress = (EditText)rootView.findViewById(R.id.TxtAddClientAddress);
+        this._editCContact = (EditText)rootView.findViewById(R.id.TxtAddClientContact);
+        this._editCLandphone = (EditText)rootView.findViewById(R.id.TxtAddClientLandPhone);
+        this._editCMobile = (EditText)rootView.findViewById(R.id.TxtAddClientMobile);
+        this._editCFax = (EditText)rootView.findViewById(R.id.TxtAddClientFax);
+        this._btnSubmit = (Button)rootView.findViewById(R.id.BtnAddClient);
+        this._btnSubmit.setOnClickListener(BtnClickListener);
+        return rootView;
+    }
+
+    View.OnClickListener BtnClickListener = new View.OnClickListener(){
+        @Override
+        public void onClick(View v) {
+            switch (v.getId())
+            {
+                case R.id.BtnAddClient:
+                    Add();
+                    break;
+            }
+        }
+    };
+
+    public void Add()
+    {
+        if(!_editCName.getText().toString().isEmpty())
+        {
+            HashMap<String, String> params = new HashMap<String, String>();
+            params.put("cname",_editCName.getText().toString());
+            params.put("pinyin", "");
+            params.put("address", _editCAddress.getText().toString());
+            params.put("contact", _editCContact.getText().toString());
+            params.put("mobile", _editCMobile.getText().toString());
+            params.put("tel", _editCLandphone.getText().toString());
+            params.put("fax",_editCFax.getText().toString());
+            // params.put("uid", GlobalHelper.LoginUserId);
+
+            RequestTaskParam param = new RequestTaskParam();
+            param.setUrl(URLHelper.AddClientUrl);
+            param.setPostData(params);
+            RequestTask task = new RequestTask();
+            task.SetRequestTaskCompletedListener(this);
+            task.execute(param);
+        }
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -95,7 +155,13 @@ public class AddClientFragment extends Fragment implements RequestTask.OnRequest
 
     @Override
     public void ResponseDataReady(String response) {
-
+        if(!response.isEmpty())
+        {
+            new AlertDialog.Builder(this.getContext())
+                    .setTitle("添加成功")
+                    .setMessage("添加成功")
+                    .show();
+        }
     }
 
     /**
