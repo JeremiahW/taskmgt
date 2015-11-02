@@ -40,4 +40,11 @@
     <string name="client_add_mobile">移动电话:</string>
     <string name="client_add_fax">传真:</string>
     <string name="client_add_submit">添加客户</string>
+    <string name="add_task_request_date">请求日期</string>
+    <string name="add_task_btn_requestdate">设置日期</string>
+    <string name="task_add_requesttime">设置时间</string>
+    <string name="task_add_requesttime_btn">设置时间</string>
+    <string name="task_add_client">选择客户</string>
+    <string name="task_add_content">工作内容</string>
+    <string name="task_add_selectclient_btn">选择客户</string>
 </resources>

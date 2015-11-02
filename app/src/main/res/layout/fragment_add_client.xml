@@ -1,70 +1,81 @@
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="fill_parent"
     android:layout_height="fill_parent" tools:context="com.bakery.taskmgt.AddClientFragment"
-    android:shrinkColumns="0" android:stretchColumns="1">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" android:orientation="vertical">
 
-        <TableRow >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/client_add_name" />
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/TxtAddClientName"/>
-        </TableRow>
-        <TableRow >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/client_add_address" />
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/TxtAddClientAddress" />
-        </TableRow>
-        <TableRow>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/client_add_contact" />
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/TxtAddClientContact" />
-        </TableRow>
-     <TableRow>
-         <TextView
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:text="@string/client_add_landphone" />
-         <EditText
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:id="@+id/TxtAddClientLandPhone" />
-     </TableRow>
-     <TableRow>
-         <TextView
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:text="@string/client_add_mobile" />
-         <EditText
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:id="@+id/TxtAddClientMobile" />
-     </TableRow>
-     <TableRow>
-         <TextView
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:text="@string/client_add_fax" />
-         <EditText
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:id="@+id/TxtAddClientFax" />
-     </TableRow>
-     <TableRow>
-         <Button android:id="@+id/BtnAddClient" android:text="@string/client_add_submit" />
-     </TableRow>
 
- </TableLayout>
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/txt_Layout_AddClientName"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/TxtAddClientName"
+                    android:hint="@string/client_add_name"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/txt_Layout_AddClientAddress"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/TxtAddClientAddress"
+                    android:hint="@string/client_add_address" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/txt_Layout_ClientContact"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/TxtAddClientContact"
+                    android:hint="@string/client_add_contact"/>
+            </android.support.design.widget.TextInputLayout>
+
+
+         <android.support.design.widget.TextInputLayout
+             android:id="@+id/txt_Layout_ClientLandPhone"
+             android:layout_width="fill_parent"
+             android:layout_height="wrap_content">
+             <EditText
+                 android:layout_width="fill_parent"
+                 android:layout_height="wrap_content"
+                 android:id="@+id/TxtAddClientLandPhone"
+                 android:hint="@string/client_add_landphone" />
+         </android.support.design.widget.TextInputLayout>
+
+
+         <android.support.design.widget.TextInputLayout
+             android:id="@+id/txt_Layout_ClientMobile"
+             android:layout_width="fill_parent"
+             android:layout_height="wrap_content">
+             <EditText
+                 android:layout_width="fill_parent"
+                 android:layout_height="wrap_content"
+                 android:id="@+id/TxtAddClientMobile"
+                 android:hint="@string/client_add_mobile" />
+         </android.support.design.widget.TextInputLayout>
+
+
+         <android.support.design.widget.TextInputLayout
+             android:id="@+id/txt_Layout_ClientFax"
+             android:layout_width="fill_parent"
+             android:layout_height="wrap_content">
+         <EditText
+             android:layout_width="fill_parent"
+             android:layout_height="wrap_content"
+             android:id="@+id/TxtAddClientFax"
+             android:hint="@string/client_add_fax" />
+         </android.support.design.widget.TextInputLayout>
+
+         <Button android:id="@+id/BtnAddClient" android:text="@string/client_add_submit" android:layout_height="wrap_content" android:layout_width="fill_parent" />
+    </LinearLayout>
+ </android.support.design.widget.CoordinatorLayout>

@@ -45,7 +45,7 @@ public class LandingActivity extends FragmentActivity
                 @Override
                 public void onDrawerOpened(View drawerView) {
                     super.onDrawerOpened(drawerView);
-                    getActionBar().setTitle("");
+                    //getActionBar().setTitle("");
                 }
 
                 @Override
@@ -74,7 +74,7 @@ public class LandingActivity extends FragmentActivity
                     savedInstanceState, "mContent");
         }
         setContentView(R.layout.landing);
-        getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new AddClientFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new AddTaskFragment()).commit();
 
     }
 

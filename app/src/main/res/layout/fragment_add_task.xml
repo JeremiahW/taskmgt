@@ -1,95 +1,107 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="fill_parent"
-    android:layout_height="fill_parent" tools:context="com.bakery.taskmgt.AddTaskFragment">
+    android:layout_height="fill_parent" tools:context="com.bakery.taskmgt.AddTaskFragment" android:orientation="vertical">
 
-  <TableLayout
-      android:layout_width="fill_parent"
-      android:layout_height="fill_parent"
-      android:stretchColumns="0,1"
-      android:shrinkColumns="2"  >
-      <TableRow>
-          <TextView android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:text="请求日期与时间" android:layout_span="2"/>
-      </TableRow>
-      <TableRow>
-          <EditText android:layout_width="fill_parent"
-              android:layout_height="fill_parent"
-              android:id="@+id/TxtAddTaskRequestDate"  android:layout_span="2" />
-          <Button android:layout_height="wrap_content"
-              android:layout_width="wrap_content"
-              android:id="@+id/BtnAddRequestDate"
-              android:text="设置日期"/>
-      </TableRow>
-      <TableRow>
-          <EditText android:layout_width="fill_parent"
-              android:layout_height="fill_parent"
-              android:id="@+id/TxtAddTaskRequestTime" android:layout_span="2" />
-          <Button android:layout_height="wrap_content"
-              android:layout_width="wrap_content"
-              android:id="@+id/BtnAddRequestTime"
-              android:text="设置时间"/>
-      </TableRow>
-      <TableRow>
-          <TextView android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:text="选择客户" android:layout_span="2"/>
-      </TableRow>
-      <TableRow>
-          <EditText android:layout_height="wrap_content" android:layout_width="wrap_content"
-              android:id="@+id/TxtAddTaskClient" android:layout_span="2"/>
-          <Button android:layout_height="wrap_content"
-              android:layout_width="wrap_content"
-              android:id="@+id/BtnAddTaskClient"
-              android:text="选择客户"/>
-      </TableRow>
-      <TableRow>
-          <TextView android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:text="选择负责人"/>
-          <TextView android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:text="服务类型"/>
-      </TableRow>
-      <TableRow>
-          <Spinner android:id="@+id/SpinnerTaskAddUser"  ></Spinner>
-          <Spinner android:id="@+id/SpinnerServiceType"  ></Spinner>
-      </TableRow>
-      <TableRow>
-          <TextView android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:text="工作内容" android:layout_span="2"/>
-      </TableRow>
-      <TableRow>
-          <EditText android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_span="2"
-              android:id="@+id/TxtAddTaskContent"/>
-      </TableRow>
-      <TableRow>
-          <LinearLayout android:layout_span="2" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent">
-              <TextView android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:text="费用"/>
-              <EditText android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:inputType="numberDecimal|numberSigned"
-                  android:id="@+id/TxtAddTaskFee"/>
-              <RadioGroup android:orientation="horizontal" android:layout_height="fill_parent" android:layout_width="fill_parent" >
-                  <RadioButton
-                      android:layout_width="wrap_content"
-                      android:layout_height="wrap_content" android:text="含税"
-                      android:id="@+id/RbAddTaskIncludeTax"/>
-                  <RadioButton
-                      android:layout_width="wrap_content"
-                      android:layout_height="wrap_content" android:text="不含税"
-                      android:id="@+id/RbAddTaskNoTax"/>
-              </RadioGroup>
-          </LinearLayout>
-      </TableRow>
-      <TableRow>
-          <Button android:text="添加任务" android:id="@+id/BtnAddTask" android:layout_span="2"  />
-      </TableRow>
-  </TableLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" android:weightSum="3">
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/txt_Layout_AddTaskRequestDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_weight="2">
+            <EditText android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/TxtAddTaskRequestDate"
+                android:hint="@string/add_task_request_date"/>
+        </android.support.design.widget.TextInputLayout>
+        <Button android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/BtnAddRequestDate"
+            android:text="@string/add_task_btn_requestdate"  android:layout_weight="1"/>
+    </LinearLayout>
 
-</FrameLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" android:weightSum="3">
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/txt_Layout_AddTaskRequestTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_weight="2">
+            <EditText android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/TxtAddTaskRequestTime"
+                android:hint="@string/task_add_requesttime"/>
+        </android.support.design.widget.TextInputLayout>
+        <Button android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/BtnAddRequestTime"
+            android:text="@string/task_add_requesttime_btn" android:layout_weight="1"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" android:weightSum="3">
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/txt_Layout_AddTaskClient"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_weight="2">
+            <EditText android:layout_height="fill_parent"
+                android:layout_width="fill_parent"
+                android:id="@+id/TxtAddTaskClient"
+                android:hint="@string/task_add_client"/>
+        </android.support.design.widget.TextInputLayout>
+        <Button android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/BtnAddTaskClient"
+            android:text="@string/task_add_selectclient_btn"
+            android:layout_weight="1"/>
+     </LinearLayout>
+    <Spinner android:id="@+id/SpinnerTaskAddUser" android:layout_height="wrap_content" android:layout_width="fill_parent"  ></Spinner>
+    <Spinner android:id="@+id/SpinnerServiceType"  android:layout_height="wrap_content" android:layout_width="fill_parent" ></Spinner>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/txt_Layout_AddTaskContent"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <EditText android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/TxtAddTaskContent"
+            android:hint="@string/task_add_content" android:minLines="5"/>
+    </android.support.design.widget.TextInputLayout>
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" android:weightSum="3">
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/txt_Layout_AddTaskFee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_weight="2">
+            <EditText android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/TxtAddTaskFee"
+                android:inputType="numberDecimal|numberSigned"
+                android:hint="@string/taskitem_fee"  />
+        </android.support.design.widget.TextInputLayout>
+        <RadioGroup android:orientation="horizontal"
+            android:layout_height="fill_parent"
+            android:layout_width="wrap_content"
+            android:layout_weight="1" >
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="含税"
+                android:id="@+id/RbAddTaskIncludeTax"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="不含税"
+                android:id="@+id/RbAddTaskNoTax"/>
+        </RadioGroup>
+    </LinearLayout>
+
+    <Button android:text="添加任务" android:id="@+id/BtnAddTask"  android:layout_height="wrap_content" android:layout_width="fill_parent"  />
+
+</LinearLayout>
