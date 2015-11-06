@@ -18,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.bakery.helper.CusHttpRequest;
 import com.bakery.helper.GlobalHelper;
 import com.bakery.helper.PublicEnum;
 import com.bakery.helper.RequestTask;
@@ -44,7 +45,7 @@ import butterknife.OnItemClick;
  * Use the {@link UploadFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class UploadFragment extends Fragment implements RequestTask.OnRequestTaskCompletedListener{
+public class UploadFragment extends Fragment implements CusHttpRequest.OnRequestTaskCompletedListener{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -73,6 +74,7 @@ public class UploadFragment extends Fragment implements RequestTask.OnRequestTas
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
+
         return fragment;
     }
 
@@ -127,23 +129,13 @@ public class UploadFragment extends Fragment implements RequestTask.OnRequestTas
     {
         Log.i(_tag, "Upload");
 
-
-
         File[] tempFile = new File[_files.size()];
         tempFile = _files.toArray(tempFile);
 
-
-
-        RequestTask task  = new RequestTask();
-        task.SetRequestTaskCompletedListener(this);
-
-
         HashMap<String, String> params = new HashMap<String, String>();
         params.put("user", "123");
-        RequestTaskParam param = new RequestTaskParam();
-        param.setUrl(URLHelper.UploadUrl);
-        param.setPostData(params);
-        task.execute(param);
+        CusHttpRequest request = new CusHttpRequest(this.getContext(), this);
+        request.PostString(URLHelper.UploadUrl, params, tempFile);
 
     }
     @Override
@@ -223,7 +215,8 @@ public class UploadFragment extends Fragment implements RequestTask.OnRequestTas
 
     @Override
     public void ResponseDataReady(String response) {
-
+        Log.i(_tag, response);
+        Snackbar.make(this.getView(),response, Snackbar.LENGTH_LONG).show();
     }
 
     /**
