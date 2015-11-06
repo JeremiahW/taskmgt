@@ -9,10 +9,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ff7b919-9a7c-48e2-bfab-c303fb41d885" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/bakery/helper/MultipartRequest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="1ff7b919-9a7c-48e2-bfab-c303fb41d885" name="Default" comment="" />
     <list id="48555376-4c43-4253-b08a-53dd8f1deb24" name="Failed commit: Default" comment="Add Volley, multi files upload with parameters." />
     <ignored path="taskmgt.iws" />
     <ignored path=".idea/workspace.xml" />
