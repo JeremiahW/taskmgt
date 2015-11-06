@@ -74,7 +74,7 @@ public class LandingActivity extends FragmentActivity
                     savedInstanceState, "mContent");
         }
         setContentView(R.layout.landing);
-        getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new AddTaskFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new UploadFragment()).commit();
 
     }
 

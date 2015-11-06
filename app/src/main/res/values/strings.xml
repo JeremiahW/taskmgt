@@ -47,4 +47,6 @@
     <string name="task_add_client">选择客户</string>
     <string name="task_add_content">工作内容</string>
     <string name="task_add_selectclient_btn">选择客户</string>
+    <string name="upload_btn_camera">拍照</string>
+    <string name="upload_btn_album">相册</string>
 </resources>
