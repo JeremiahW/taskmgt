@@ -13,6 +13,7 @@ import android.widget.ImageButton;
 
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.PushManager;
+import com.bakery.custom.CustomViewFragment;
 import com.bakery.helper.Utils;
 
 /**
@@ -74,7 +75,7 @@ public class LandingActivity extends FragmentActivity
                     savedInstanceState, "mContent");
         }
         setContentView(R.layout.landing);
-        getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new UploadFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new CustomViewFragment()).commit();
 
     }
 
